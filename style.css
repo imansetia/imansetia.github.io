@@ -1,0 +1,817 @@
+/* ==========================================================================
+   1. CSS VARIABLES & THEME TOKENS
+   ========================================================================== */
+:root,
+[data-theme="light"] {
+  --bg: #F2EBE4;
+  --surface: #FFFFFF;
+  --text: #0D141B;
+  --muted: #969696;
+  --border: rgba(13, 20, 27, 0.14);
+  --border-strong: rgba(13, 20, 27, 0.32);
+  --canvas-stage-bg: rgba(255, 255, 255, 0.35);
+
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --container-max: 1320px;
+  --gutter: 2.5rem;
+  --transition-base: 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme="dark"] {
+  --bg: #0E0E0E;
+  --surface: #1C1C1A;
+  --text: #E9E1D5;
+  --muted: #8A857B;
+  --border: rgba(233, 225, 213, 0.14);
+  --border-strong: rgba(233, 225, 213, 0.35);
+  --canvas-stage-bg: rgba(28, 28, 26, 0.45);
+}
+
+/* ==========================================================================
+   2. RESET & BASE STYLES
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-base), color var(--transition-base);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle fixed film grain / noise overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-base), opacity var(--transition-base);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Focus states for keyboard accessibility */
+:focus-visible {
+  outline: 1px solid var(--text);
+  outline-offset: 4px;
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY & UTILITY CLASSES
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.mono-label,
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 3.5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* Gentle Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   4. NAVBAR
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4.5rem;
+  gap: 1.5rem;
+}
+
+.nav-brand {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  position: relative;
+  padding-block: 0.25rem;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--text);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-base);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--text);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.theme-toggle:hover {
+  border-color: var(--border-strong);
+}
+
+.theme-indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--text);
+  display: inline-block;
+  transition: background-color var(--transition-base);
+}
+
+.theme-toggle .mono-label {
+  color: var(--text);
+  font-size: 0.7rem;
+}
+
+/* ==========================================================================
+   5. HERO SECTION (Text Left / 3D Canvas Right)
+   ========================================================================== */
+.hero-section {
+  padding-top: clamp(3rem, 6vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-content .section-label {
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(3.25rem, 6vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-intro {
+  font-size: clamp(1.025rem, 1.35vw, 1.2rem);
+  color: var(--text);
+  max-width: 34ch;
+  font-weight: 300;
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  width: 100%;
+  max-width: 26rem;
+}
+
+.meta-separator {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+/* 3D Canvas Stage */
+.hero-visual {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.book-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border: 1px solid var(--border);
+  background-color: var(--canvas-stage-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: grab;
+  /* Allow vertical page scroll on mobile while horizontal gestures rotate the book */
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.book-canvas-container:active {
+  cursor: grabbing;
+}
+
+.book-canvas-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  outline: none;
+}
+
+.book-fallback {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.book-fallback[hidden] {
+  display: none !important;
+}
+
+.book-fallback-img {
+  max-height: 360px;
+  width: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.canvas-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   6. SHARED EDITORIAL SECTION STRUCTURE
+   ========================================================================== */
+.editorial-section {
+  padding-top: clamp(3.5rem, 6vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+  border-top: 1px solid var(--border);
+}
+
+.section-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.section-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.view-all-link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--border-strong);
+  transition: border-color var(--transition-base), color var(--transition-base);
+  white-space: nowrap;
+}
+
+.view-all-link span {
+  transition: transform var(--transition-base);
+}
+
+.view-all-link:hover {
+  border-color: var(--text);
+}
+
+.view-all-link:hover span {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   7. CURRENTLY READING & WATCHING (2 Side-by-Side Cards)
+   ========================================================================== */
+.currently-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.currently-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.currently-card:hover {
+  border-color: var(--border-strong);
+}
+
+.currently-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.currently-card-body {
+  display: grid;
+  grid-template-columns: 115px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.currently-thumb {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  filter: grayscale(100%) contrast(1.04);
+  transition: filter var(--transition-base);
+}
+
+.currently-card:hover .currently-thumb {
+  filter: grayscale(40%) contrast(1.02);
+}
+
+.currently-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.currently-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.85rem;
+  line-height: 1.12;
+  margin-bottom: 0.35rem;
+}
+
+.currently-creator {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.currently-note {
+  font-size: 0.9375rem;
+  color: var(--text);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   8. FAVORITE BOOKS & FILMS (Horizontal Row of 5 Covers / Posters)
+   ========================================================================== */
+.archive-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.75rem;
+}
+
+.archive-item {
+  display: flex;
+  flex-direction: column;
+  group: archive-card;
+}
+
+.archive-cover-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  margin-bottom: 0.9rem;
+}
+
+.archive-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.05);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), filter 500ms ease;
+}
+
+.archive-item:hover .archive-cover {
+  transform: scale(1.025);
+  filter: grayscale(20%) contrast(1.02);
+}
+
+.archive-meta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+.archive-index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.archive-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.18;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.archive-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   9. LATEST NOTES (3 Numbered Rows with Thin Divider Lines)
+   ========================================================================== */
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.note-row {
+  border-bottom: 1px solid var(--border);
+}
+
+.note-link {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding-block: 1.6rem;
+  transition: padding-left var(--transition-base);
+}
+
+.note-link:hover {
+  padding-left: 0.5rem;
+}
+
+.note-number {
+  color: var(--muted);
+}
+
+.note-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.45rem, 2.2vw, 1.95rem);
+  line-height: 1.2;
+  color: var(--text);
+  transition: color var(--transition-base);
+}
+
+.note-date {
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ==========================================================================
+   10. SHORT ABOUT SECTION
+   ========================================================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.about-text {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 58ch;
+}
+
+/* ==========================================================================
+   11. FOOTER
+   ========================================================================== */
+.site-footer {
+  padding-top: 2rem;
+  padding-bottom: 3.5rem;
+}
+
+.footer-inner {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: var(--muted);
+  transition: color var(--transition-base);
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+/* ==========================================================================
+   12. RESPONSIVE BREAKPOINTS (Tablet & Mobile 390px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  :root {
+    --gutter: 1.75rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .book-canvas-container {
+    height: 440px;
+  }
+
+  .currently-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --gutter: 1.25rem;
+  }
+
+  /* Compact Navbar for Mobile 390px */
+  .navbar {
+    flex-wrap: wrap;
+    padding-block: 0.85rem;
+    gap: 0.75rem;
+  }
+
+  .nav-brand {
+    font-size: 1.3rem;
+  }
+
+  .theme-toggle {
+    padding: 0.35rem 0.6rem;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--border);
+    gap: 0.5rem;
+  }
+
+  /* Hero Mobile */
+  .hero-section {
+    padding-top: 2.25rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-title {
+    font-size: 3.1rem;
+  }
+
+  .book-canvas-container {
+    height: 360px;
+  }
+
+  .canvas-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  /* Currently Cards Mobile */
+  .currently-card {
+    padding: 1.25rem;
+  }
+
+  .currently-card-body {
+    grid-template-columns: 92px 1fr;
+    gap: 1.1rem;
+  }
+
+  .currently-title {
+    font-size: 1.5rem;
+  }
+
+  /* Horizontal Scroll on Mobile for Favorite Books & Films */
+  .archive-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.15rem;
+    padding-bottom: 1rem;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .archive-item {
+    flex: 0 0 64%;
+    max-width: 230px;
+    scroll-snap-align: start;
+  }
+
+  /* Notes Mobile */
+  .note-link {
+    grid-template-columns: 2.25rem 1fr;
+    gap: 0.5rem 0.75rem;
+    padding-block: 1.25rem;
+  }
+
+  .note-date {
+    grid-column: 2;
+    text-align: left;
+    margin-top: 0.2rem;
+  }
+
+  /* Footer Mobile */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   13. REDUCED MOTION PREFERENCES
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .archive-cover,
+  .view-all-link span,
+  .note-link {
+    transition: none;
+  }
+}
