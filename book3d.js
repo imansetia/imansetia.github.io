@@ -4,13 +4,6 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
  * ============================================================================
  * 3D INTERACTIVE HARDCOVER BOOK — IMAN SETIA'S LIBRARY
  * ============================================================================
- * Built with Three.js BoxGeometry primitives:
- * - Front cover (hinged at spine so it tilts open ~25° on hover/tap)
- * - Back cover
- * - Spine (with procedural archival title typography & soft rounded shading)
- * - Page block (off-white paper with subtle page ridges & interior title page)
- * - Gentle contact shadow plane underneath
- * ============================================================================
  */
 
 const COVER_IMAGE_URL = "https://picsum.photos/seed/tanizaki-shadows/600/900?grayscale";
@@ -23,6 +16,11 @@ function initBook3D() {
   const heroSection = document.getElementById("hero");
 
   if (!container) return;
+
+  // VARIABEL DIPINDAHKAN KE ATAS AGAR TIDAK ERROR "Cannot access before initialization"
+  let isHeroVisible = true;
+  let animationFrameId = null;
+  const clock = new THREE.Clock();
 
   // Helper to show 2D fallback image if WebGL fails
   function showFallback() {
@@ -67,7 +65,7 @@ function initBook3D() {
   container.appendChild(renderer.domElement);
 
   // 2. Scene & Camera Setup
-  const scene = new THREE.Scene(); // Transparent background via alpha: true
+  const scene = new THREE.Scene();
 
   const camera = new THREE.PerspectiveCamera(
     34,
@@ -90,9 +88,6 @@ function initBook3D() {
   rimLight.position.set(-5.0, 2.0, -3.5);
   scene.add(rimLight);
 
-  /**
-   * Adjust light intensity when the theme toggle changes
-   */
   function updateThemeLighting(theme) {
     const isDark = theme === "dark";
     if (isDark) {
@@ -113,18 +108,13 @@ function initBook3D() {
     requestRenderIfStatic();
   }
 
-  // 4. Procedural Canvas Textures (Spine, Pages, Interior Page, Shadow)
-
-  /**
-   * Creates the spine texture showing the book title & soft rounded edge shading
-   */
+  // 4. Procedural Canvas Textures
   function createSpineTexture() {
     const canvas = document.createElement("canvas");
     canvas.width = 256;
     canvas.height = 1536;
     const ctx = canvas.getContext("2d");
 
-    // Soft horizontal gradient across spine width to give a rounded hardcover feel
     const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
     grad.addColorStop(0.0, "#101214");
     grad.addColorStop(0.18, "#232629");
@@ -134,7 +124,6 @@ function initBook3D() {
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Subtle cloth weave lines
     ctx.strokeStyle = "rgba(255, 255, 255, 0.03)";
     ctx.lineWidth = 2;
     for (let y = 0; y < canvas.height; y += 6) {
@@ -144,7 +133,6 @@ function initBook3D() {
       ctx.stroke();
     }
 
-    // Top & bottom archival rules
     ctx.strokeStyle = "#d8cfc2";
     ctx.lineWidth = 3;
     ctx.beginPath();
@@ -154,13 +142,11 @@ function initBook3D() {
     ctx.lineTo(canvas.width - 44, canvas.height - 110);
     ctx.stroke();
 
-    // Catalog number at top
     ctx.fillStyle = "#d8cfc2";
     ctx.font = "500 30px 'IBM Plex Mono', monospace";
     ctx.textAlign = "center";
     ctx.fillText("01", canvas.width / 2, 82);
 
-    // Rotated Spine Title & Author
     ctx.save();
     ctx.translate(canvas.width / 2, canvas.height / 2);
     ctx.rotate(Math.PI / 2);
@@ -182,27 +168,21 @@ function initBook3D() {
     return texture;
   }
 
-  /**
-   * Creates a fallback / base cover texture enhanced once the Picsum image loads
-   */
   function createCoverTexture(loadedImage = null) {
     const canvas = document.createElement("canvas");
     canvas.width = 800;
     canvas.height = 1200;
     const ctx = canvas.getContext("2d");
 
-    // Clothbound warm charcoal frame
     ctx.fillStyle = "#1d1f21";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // If external image loaded, draw it cleanly; either way add soft spine hinge groove
     if (loadedImage) {
       ctx.save();
       ctx.filter = "grayscale(100%) contrast(1.06)";
       ctx.drawImage(loadedImage, 0, 0, canvas.width, canvas.height);
       ctx.restore();
 
-      // Subtle dark vignette for vintage feel
       const radGrad = ctx.createRadialGradient(400, 600, 220, 400, 600, 720);
       radGrad.addColorStop(0, "rgba(0,0,0,0.05)");
       radGrad.addColorStop(1, "rgba(0,0,0,0.45)");
@@ -210,7 +190,6 @@ function initBook3D() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 
-    // Editorial book plate overlay on the front cover
     ctx.fillStyle = "rgba(242, 235, 228, 0.92)";
     ctx.fillRect(90, 96, 620, 260);
     ctx.strokeStyle = "rgba(13, 20, 27, 0.35)";
@@ -226,7 +205,6 @@ function initBook3D() {
     ctx.font = "400 22px 'IBM Plex Mono', monospace";
     ctx.fillText("JUN’ICHIRŌ TANIZAKI · EDITION 01", 400, 265);
 
-    // Soft rounded spine groove shading on left edge
     const spineGroove = ctx.createLinearGradient(0, 0, 56, 0);
     spineGroove.addColorStop(0.0, "rgba(0, 0, 0, 0.58)");
     spineGroove.addColorStop(0.45, "rgba(0, 0, 0, 0.18)");
@@ -241,9 +219,6 @@ function initBook3D() {
     return texture;
   }
 
-  /**
-   * Creates an off-white interior page texture (visible when book tilts open 25°)
-   */
   function createInteriorPageTexture() {
     const canvas = document.createElement("canvas");
     canvas.width = 512;
@@ -253,14 +228,12 @@ function initBook3D() {
     ctx.fillStyle = "#F4EFE6";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Subtle gutter shadow near spine
     const gutter = ctx.createLinearGradient(0, 0, 90, 0);
     gutter.addColorStop(0, "rgba(13, 20, 27, 0.22)");
     gutter.addColorStop(1, "rgba(13, 20, 27, 0)");
     ctx.fillStyle = gutter;
     ctx.fillRect(0, 0, 90, canvas.height);
 
-    // Minimalist ex-libris stamp on title page
     ctx.fillStyle = "#555049";
     ctx.font = "400 16px 'IBM Plex Mono', monospace";
     ctx.textAlign = "center";
@@ -275,9 +248,6 @@ function initBook3D() {
     return texture;
   }
 
-  /**
-   * Creates subtle stacked paper lines for the page block edges
-   */
   function createPageEdgeTexture() {
     const canvas = document.createElement("canvas");
     canvas.width = 128;
@@ -300,9 +270,6 @@ function initBook3D() {
     return texture;
   }
 
-  /**
-   * Creates a soft radial contact shadow texture under the floating book
-   */
   function createShadowTexture() {
     const canvas = document.createElement("canvas");
     canvas.width = 256;
@@ -320,22 +287,19 @@ function initBook3D() {
     return new THREE.CanvasTexture(canvas);
   }
 
-  // 5. Build Hardcover Book Geometry (2:3 Size Ratio)
+  // 5. Build Hardcover Book Geometry
   const bookWidth = 2.1;
-  const bookHeight = 3.15; // Exact 2:3 ratio (2.1 : 3.15)
+  const bookHeight = 3.15;
   const bookThickness = 0.34;
   const boardThickness = 0.045;
   const pageOverhang = 0.06;
 
-  // Root group for floating + drag rotation
   const bookRoot = new THREE.Group();
-  // Slight initial editorial angle so spine & cover are both visible
   const baseRotationY = -0.32;
   const baseRotationX = 0.08;
   bookRoot.rotation.set(baseRotationX, baseRotationY, 0);
   scene.add(bookRoot);
 
-  // Materials
   const clothMaterial = new THREE.MeshStandardMaterial({
     color: 0x222528,
     roughness: 0.82,
@@ -355,7 +319,6 @@ function initBook3D() {
     metalness: 0.04
   });
 
-  // Load the cinematic placeholder image onto the front cover texture
   const textureLoader = new THREE.TextureLoader();
   textureLoader.setCrossOrigin("anonymous");
   textureLoader.load(
@@ -366,28 +329,22 @@ function initBook3D() {
       frontCoverFaceMaterial.map = updatedCoverTex;
       frontCoverFaceMaterial.needsUpdate = true;
       requestRenderIfStatic();
-    },
-    undefined,
-    () => {
-      // Keep procedural cover texture if offline
     }
   );
 
-  // A. Back Cover (BoxGeometry)
   const backCoverGeo = new THREE.BoxGeometry(bookWidth, bookHeight, boardThickness);
   const backCoverMaterials = [
-    clothMaterial, // right
-    clothMaterial, // left
-    clothMaterial, // top
-    clothMaterial, // bottom
-    endpaperMaterial, // inside back cover (+z)
-    clothMaterial // outside back cover (-z)
+    clothMaterial,
+    clothMaterial,
+    clothMaterial,
+    clothMaterial,
+    endpaperMaterial,
+    clothMaterial
   ];
   const backCoverMesh = new THREE.Mesh(backCoverGeo, backCoverMaterials);
   backCoverMesh.position.set(0, 0, -(bookThickness / 2 - boardThickness / 2));
   bookRoot.add(backCoverMesh);
 
-  // B. Spine (BoxGeometry with Title Texture on outer -x face)
   const spineWidth = boardThickness * 1.35;
   const spineGeo = new THREE.BoxGeometry(spineWidth, bookHeight, bookThickness);
   const spineTitleMaterial = new THREE.MeshStandardMaterial({
@@ -396,18 +353,17 @@ function initBook3D() {
     metalness: 0.05
   });
   const spineMaterials = [
-    clothMaterial, // inner (+x)
-    spineTitleMaterial, // outer spine face (-x)
-    clothMaterial, // top
-    clothMaterial, // bottom
-    clothMaterial, // front edge
-    clothMaterial // back edge
+    clothMaterial,
+    spineTitleMaterial,
+    clothMaterial,
+    clothMaterial,
+    clothMaterial,
+    clothMaterial
   ];
   const spineMesh = new THREE.Mesh(spineGeo, spineMaterials);
   spineMesh.position.set(-bookWidth / 2 + spineWidth / 2 - 0.01, 0, 0);
   bookRoot.add(spineMesh);
 
-  // C. Page Block (Off-White BoxGeometry)
   const pageWidth = bookWidth - pageOverhang - spineWidth * 0.5;
   const pageHeight = bookHeight - pageOverhang * 1.8;
   const pageThickness = bookThickness - boardThickness * 2.05;
@@ -426,18 +382,17 @@ function initBook3D() {
 
   const pageBlockGeo = new THREE.BoxGeometry(pageWidth, pageHeight, pageThickness);
   const pageBlockMaterials = [
-    pageEdgeMat, // fore-edge (+x)
-    pageEdgeMat, // spine edge (-x)
-    pageEdgeMat, // top edge (+y)
-    pageEdgeMat, // bottom edge (-y)
-    interiorPageMat, // front page (+z) revealed when front cover tilts open
-    pageEdgeMat // back page (-z)
+    pageEdgeMat,
+    pageEdgeMat,
+    pageEdgeMat,
+    pageEdgeMat,
+    interiorPageMat,
+    pageEdgeMat
   ];
   const pageBlockMesh = new THREE.Mesh(pageBlockGeo, pageBlockMaterials);
   pageBlockMesh.position.set((spineWidth * 0.5 - pageOverhang * 0.5) * 0.5, 0, 0);
   bookRoot.add(pageBlockMesh);
 
-  // D. Front Cover Hinged at Spine (so Hover/Tap opens it ~25 degrees)
   const frontCoverPivot = new THREE.Group();
   frontCoverPivot.position.set(
     -bookWidth / 2 + boardThickness * 0.5,
@@ -448,18 +403,17 @@ function initBook3D() {
 
   const frontCoverGeo = new THREE.BoxGeometry(bookWidth, bookHeight, boardThickness);
   const frontCoverMaterials = [
-    clothMaterial, // right edge (+x)
-    clothMaterial, // spine hinge edge (-x)
-    clothMaterial, // top edge (+y)
-    clothMaterial, // bottom edge (-y)
-    frontCoverFaceMaterial, // outer front cover (+z)
-    endpaperMaterial // inner front cover (-z)
+    clothMaterial,
+    clothMaterial,
+    clothMaterial,
+    clothMaterial,
+    frontCoverFaceMaterial,
+    endpaperMaterial
   ];
   const frontCoverMesh = new THREE.Mesh(frontCoverGeo, frontCoverMaterials);
   frontCoverMesh.position.set(bookWidth / 2 - boardThickness * 0.5, 0, 0);
   frontCoverPivot.add(frontCoverMesh);
 
-  // E. Gentle Shadow Plane under the book
   const shadowGeo = new THREE.PlaneGeometry(3.5, 1.9);
   const shadowMat = new THREE.MeshBasicMaterial({
     map: createShadowTexture(),
@@ -467,12 +421,11 @@ function initBook3D() {
     opacity: 0.22,
     depthWrite: false
   });
-  const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+  let shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
   shadowMesh.rotation.x = -Math.PI / 2;
   shadowMesh.position.set(0, -1.92, 0);
   scene.add(shadowMesh);
 
-  // Initialize lighting according to current theme
   const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
   updateThemeLighting(currentTheme);
 
@@ -481,7 +434,7 @@ function initBook3D() {
     updateThemeLighting(nextTheme);
   });
 
-  // 6. Interaction State (Drag Inertia + Hover/Tap 25° Open + Idle Float)
+  // 6. Interaction State
   let isDragging = false;
   let isHovered = false;
   let isTappedOpen = false;
@@ -495,8 +448,8 @@ function initBook3D() {
   let velocityX = 0;
 
   let currentCoverOpenAngle = 0;
-  const OPEN_ANGLE_RAD = THREE.MathUtils.degToRad(25); // 25 degrees open tilt
-  const MAX_IDLE_ROT_RAD = THREE.MathUtils.degToRad(8); // < 10 degrees max idle swing
+  const OPEN_ANGLE_RAD = THREE.MathUtils.degToRad(25);
+  const MAX_IDLE_ROT_RAD = THREE.MathUtils.degToRad(8);
 
   const prefersReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   let prefersReducedMotion = prefersReducedMotionQuery.matches;
@@ -505,7 +458,6 @@ function initBook3D() {
     requestRenderIfStatic();
   });
 
-  // Mouse Events (Desktop)
   container.addEventListener("mouseenter", () => {
     isHovered = true;
     requestRenderIfStatic();
@@ -545,7 +497,6 @@ function initBook3D() {
     isDragging = false;
   });
 
-  // Touch Events (Mobile: Horizontal rotation only, preserves vertical page scroll)
   let touchStartX = 0;
   let touchStartY = 0;
   let touchStartTime = 0;
@@ -577,12 +528,10 @@ function initBook3D() {
       const totalDx = Math.abs(touch.clientX - touchStartX);
       const totalDy = Math.abs(touch.clientY - touchStartY);
 
-      // Determine gesture direction on first significant movement
       if (touchLockHorizontal === null && (totalDx > 5 || totalDy > 5)) {
         touchLockHorizontal = totalDx > totalDy;
       }
 
-      // Only rotate horizontally; allow vertical page scrolling to proceed normally
       if (touchLockHorizontal) {
         const deltaX = touch.clientX - previousPointerX;
         velocityY = deltaX * 0.009;
@@ -607,7 +556,6 @@ function initBook3D() {
           changedTouch.clientX - touchStartX,
           changedTouch.clientY - touchStartY
         );
-        // Short tap toggles the 25-degree cover tilt on mobile
         if (moveDist < 10 && elapsed < 300) {
           isTappedOpen = !isTappedOpen;
           requestRenderIfStatic();
@@ -618,7 +566,6 @@ function initBook3D() {
     { passive: true }
   );
 
-  // 7. Resize Handling
   function handleResize() {
     if (!container) return;
     const width = container.clientWidth;
@@ -633,11 +580,6 @@ function initBook3D() {
 
   window.addEventListener("resize", handleResize);
 
-  // 8. IntersectionObserver (Render only when Hero is visible)
-  let isHeroVisible = true;
-  let animationFrameId = null;
-  const clock = new THREE.Clock();
-
   function renderFrame() {
     animationFrameId = null;
 
@@ -645,7 +587,6 @@ function initBook3D() {
 
     const elapsedTime = clock.getElapsedTime();
 
-    // Apply smooth inertia when not actively dragging
     if (!isDragging) {
       userRotationY += velocityY;
       userRotationX = THREE.MathUtils.clamp(userRotationX + velocityX, -0.45, 0.45);
@@ -656,7 +597,6 @@ function initBook3D() {
       if (Math.abs(velocityX) < 0.00005) velocityX = 0;
     }
 
-    // Idle float & subtle oscillation (max 10 degrees), disabled if prefers-reduced-motion
     let idleOffsetY = 0;
     let idleRotY = 0;
     let idleRotZ = 0;
@@ -667,13 +607,11 @@ function initBook3D() {
       idleRotZ = Math.cos(elapsedTime * 0.95) * 0.025;
     }
 
-    // Target cover opening (~25 degrees on hover or tap)
     const shouldOpenCover = isHovered || isTappedOpen;
     const targetOpenAngle = shouldOpenCover ? -OPEN_ANGLE_RAD : 0;
     currentCoverOpenAngle += (targetOpenAngle - currentCoverOpenAngle) * 0.1;
     frontCoverPivot.rotation.y = currentCoverOpenAngle;
 
-    // Slight whole-book presentation tilt when hovered/tapped
     const hoverTiltX = shouldOpenCover ? 0.06 : 0;
     const hoverTiltY = shouldOpenCover ? 0.12 : 0;
 
@@ -682,13 +620,11 @@ function initBook3D() {
     bookRoot.rotation.x = baseRotationX + userRotationX + hoverTiltX;
     bookRoot.rotation.z = idleRotZ;
 
-    // Scale shadow subtly with floating height
     const shadowScale = 1 - idleOffsetY * 0.85;
     shadowMesh.scale.set(shadowScale, shadowScale, 1);
 
     renderer.render(scene, camera);
 
-    // Keep animating if motion is allowed or if inertia/cover transition is still settling
     const isSettling =
       Math.abs(velocityY) > 0.0001 ||
       Math.abs(velocityX) > 0.0001 ||
@@ -737,7 +673,6 @@ function initBook3D() {
     heroObserver.observe(heroSection);
   }
 
-  // Kick off initial render loop
   startLoop();
 }
 
