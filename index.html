@@ -1,2 +1,818 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Iman Setia — Ruang Personal</title>
 
-<h1>Situs web imansetia sedang dibangun</h1>.
+  <style>
+    :root {
+      --bg: #f9f6f0;
+      --ink: #1a1512;
+      --muted: #736b63;
+      --line: #dcd3c6;
+      --accent: #b38b59;
+      --pill-bg: #1a1512;
+      --pill-fg: #f9f6f0;
+
+      --vignette: rgba(26, 21, 18, 0.12);
+      --grain-opacity: 0.22;
+      --grain-blend: multiply;
+      --window-opacity: 0.05;
+      --dune-opacity: 0.042;
+
+      color-scheme: light;
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0a0a0a;
+      --ink: #e6e1d8;
+      --muted: #8c857d;
+      --line: #262626;
+      --accent: #d4a373;
+      --pill-bg: #d4a373;
+      --pill-fg: #0a0a0a;
+
+      --vignette: rgba(0, 0, 0, 0.72);
+      --grain-opacity: 0.14;
+      --grain-blend: overlay;
+      --window-opacity: 0.11;
+      --dune-opacity: 0.05;
+
+      color-scheme: dark;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0a0a0a;
+        --ink: #e6e1d8;
+        --muted: #8c857d;
+        --line: #262626;
+        --accent: #d4a373;
+        --pill-bg: #d4a373;
+        --pill-fg: #0a0a0a;
+
+        --vignette: rgba(0, 0, 0, 0.72);
+        --grain-opacity: 0.14;
+        --grain-blend: overlay;
+        --window-opacity: 0.11;
+        --dune-opacity: 0.05;
+
+        color-scheme: dark;
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scrollbar-color: var(--line) transparent;
+      scrollbar-width: thin;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      transition: background 0.8s, color 0.8s;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    :focus-visible {
+      outline: 1.5px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--line);
+      border-radius: 999px;
+    }
+
+    /* --------------------------------------------------------------------------
+       Atmospheric layer
+       -------------------------------------------------------------------------- */
+
+    .stage {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      background: var(--bg);
+      transition: background 0.8s;
+    }
+
+    .window-shadow {
+      position: absolute;
+      top: -50%;
+      left: -12%;
+      width: 124%;
+      height: 200%;
+      pointer-events: none;
+      opacity: var(--window-opacity);
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 15vh,
+          rgba(0, 0, 0, 0.5) 15vh,
+          rgba(0, 0, 0, 0.5) calc(15vh + 2px),
+          transparent calc(15vh + 2px),
+          transparent 30vh
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 20vw,
+          rgba(0, 0, 0, 0.4) 20vw,
+          rgba(0, 0, 0, 0.4) calc(20vw + 2px),
+          transparent calc(20vw + 2px),
+          transparent 40vw
+        ),
+        linear-gradient(
+          115deg,
+          transparent 0,
+          transparent 34%,
+          rgba(0, 0, 0, 0.28) 34%,
+          rgba(0, 0, 0, 0.28) 46%,
+          transparent 46%,
+          transparent 100%
+        );
+      filter: blur(18px);
+      transform: translate3d(0, 0, 0) rotate(-7deg) scale(1.35);
+      transform-origin: 50% 50%;
+      will-change: transform;
+      transition: opacity 0.8s;
+    }
+
+    .dust-motes {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      color: var(--ink);
+      opacity: 0.15;
+      transition: color 0.8s;
+    }
+
+    .dust-motes::before,
+    .dust-motes::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: currentColor;
+      filter: blur(0.7px);
+      will-change: transform;
+    }
+
+    .dust-motes::before {
+      box-shadow:
+        4vw 12vh 0 0 currentColor,
+        11vw 46vh 0 0 currentColor,
+        19vw 83vh 0 0 currentColor,
+        27vw 22vh 0 0 currentColor,
+        33vw 117vh 0 0 currentColor,
+        41vw 61vh 0 0 currentColor,
+        48vw 154vh 0 0 currentColor,
+        56vw 34vh 0 0 currentColor,
+        63vw 97vh 0 0 currentColor,
+        71vw 176vh 0 0 currentColor,
+        79vw 52vh 0 0 currentColor,
+        86vw 129vh 0 0 currentColor,
+        93vw 73vh 0 0 currentColor,
+        7vw 165vh 0 0 currentColor,
+        16vw 9vh 0 0 currentColor,
+        23vw 139vh 0 0 currentColor,
+        31vw 191vh 0 0 currentColor,
+        38vw 69vh 0 0 currentColor,
+        45vw 111vh 0 0 currentColor,
+        52vw 5vh 0 0 currentColor,
+        59vw 147vh 0 0 currentColor,
+        67vw 28vh 0 0 currentColor,
+        74vw 88vh 0 0 currentColor,
+        82vw 159vh 0 0 currentColor,
+        89vw 42vh 0 0 currentColor,
+        96vw 103vh 0 0 currentColor,
+        2vw 76vh 0 0 currentColor,
+        35vw 172vh 0 0 currentColor,
+        69vw 201vh 0 0 currentColor,
+        97vw 17vh 0 0 currentColor;
+      animation: dustRise 68s linear infinite;
+    }
+
+    .dust-motes::after {
+      box-shadow:
+        8vw 51vh 0 0 currentColor,
+        15vw 97vh 0 0 currentColor,
+        22vw 14vh 0 0 currentColor,
+        29vw 133vh 0 0 currentColor,
+        36vw 58vh 0 0 currentColor,
+        43vw 182vh 0 0 currentColor,
+        50vw 106vh 0 0 currentColor,
+        57vw 25vh 0 0 currentColor,
+        64vw 149vh 0 0 currentColor,
+        72vw 71vh 0 0 currentColor,
+        80vw 195vh 0 0 currentColor,
+        87vw 39vh 0 0 currentColor,
+        94vw 122vh 0 0 currentColor,
+        5vw 168vh 0 0 currentColor,
+        18vw 84vh 0 0 currentColor,
+        26vw 6vh 0 0 currentColor,
+        34vw 156vh 0 0 currentColor,
+        42vw 33vh 0 0 currentColor,
+        49vw 188vh 0 0 currentColor,
+        55vw 64vh 0 0 currentColor,
+        62vw 143vh 0 0 currentColor,
+        70vw 12vh 0 0 currentColor,
+        78vw 118vh 0 0 currentColor,
+        85vw 90vh 0 0 currentColor,
+        92vw 177vh 0 0 currentColor,
+        98vw 47vh 0 0 currentColor,
+        12vw 204vh 0 0 currentColor,
+        39vw 43vh 0 0 currentColor,
+        61vw 171vh 0 0 currentColor,
+        88vw 103vh 0 0 currentColor;
+      animation: dustRiseAlt 92s linear infinite;
+    }
+
+    /* --------------------------------------------------------------------------
+       Monumental dune / page watermark (inline SVG)
+       -------------------------------------------------------------------------- */
+
+    .dune-watermark {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      color: var(--ink);
+      opacity: var(--dune-opacity);
+      pointer-events: none;
+      transform-origin: 50% 62%;
+      will-change: transform;
+      transition: color 0.8s, opacity 0.8s;
+    }
+
+    .film-grain {
+      position: absolute;
+      inset: -50%;
+      opacity: var(--grain-opacity);
+      mix-blend-mode: var(--grain-blend);
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23noise)' opacity='0.55'/%3E%3C/svg%3E");
+      background-size: 240px 240px;
+      animation: grainShift 1.1s steps(5) infinite;
+      transition: opacity 0.8s, mix-blend-mode 0.8s;
+      will-change: transform;
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(
+        circle at 50% 46%,
+        transparent 38%,
+        var(--vignette) 100%
+      );
+      transition: background 0.8s;
+    }
+
+    /* --------------------------------------------------------------------------
+       Chrome, footer and scroll meter
+       -------------------------------------------------------------------------- */
+
+    .meter {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 60;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      will-change: transform;
+      transition: background 0.8s;
+    }
+
+    .chrome {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: calc(21px + env(safe-area-inset-top)) clamp(18px, 4vw, 46px) 0;
+    }
+
+    .mark {
+      color: var(--ink);
+      font-family: -apple-system, sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+
+    .mark:hover {
+      color: var(--accent);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2.4vw, 32px);
+      font-family: -apple-system, sans-serif;
+      font-size: 10.5px;
+      letter-spacing: 0.145em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      appearance: none;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+      text-transform: inherit;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--ink);
+    }
+
+    .pill {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 14px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--pill-bg);
+      color: var(--pill-fg);
+      font-family: -apple-system, sans-serif;
+      font-size: 9.5px;
+      line-height: 1;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      cursor: pointer;
+      transition:
+        background 0.8s,
+        color 0.8s,
+        border-color 0.3s,
+        transform 0.3s;
+    }
+
+    .pill::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.55;
+      transition: transform 0.4s, opacity 0.4s;
+    }
+
+    .pill:hover::before {
+      opacity: 0.95;
+      transform: scale(1.45);
+    }
+
+    .pill:active {
+      transform: scale(0.975);
+    }
+
+    .foot {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 clamp(18px, 4vw, 46px) calc(16px + env(safe-area-inset-bottom));
+      color: var(--muted);
+      font-family: -apple-system, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      line-height: 1;
+      text-transform: uppercase;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .foot-hint {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .hint-line {
+      position: relative;
+      display: block;
+      width: 44px;
+      height: 1px;
+      overflow: hidden;
+      background: var(--line);
+    }
+
+    .hint-line::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      transform: translateX(-100%);
+      animation: hintSweep 2.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    }
+
+    /* --------------------------------------------------------------------------
+       Text panel layer
+       -------------------------------------------------------------------------- */
+
+    .panels {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .panel {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding:
+        calc(104px + env(safe-area-inset-top))
+        clamp(22px, 6vw, 82px)
+        calc(82px + env(safe-area-inset-bottom));
+      text-align: center;
+      opacity: 0;
+      transform: translate3d(0, 26px, 0);
+      will-change: opacity, transform;
+      pointer-events: none;
+    }
+
+    .panel:first-of-type {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      pointer-events: auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 24px;
+      color: var(--accent);
+      font-family: -apple-system, sans-serif;
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      transition: color 0.8s;
+    }
+
+    .panel h1 {
+      max-width: 18ch;
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 7vw, 92px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      text-wrap: balance;
+      transition: color 0.8s;
+    }
+
+    .panel h1 em {
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      transition: color 0.8s;
+    }
+
+    .sub {
+      max-width: 44ch;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(16px, 1.5vw, 20px);
+      font-weight: 400;
+      line-height: 1.6;
+      text-wrap: pretty;
+      transition: color 0.8s;
+    }
+
+    .cta {
+      appearance: none;
+      -webkit-appearance: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 34px 0 0;
+      padding: 9px 1px 8px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      font-family: -apple-system, sans-serif;
+      font-size: 11.5px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition:
+        color 0.35s,
+        border-color 0.35s,
+        transform 0.35s;
+    }
+
+    .cta .arrow {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 0;
+      transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .cta:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .cta:hover .arrow {
+      transform: translateX(5px);
+    }
+
+    .cta:active {
+      transform: translateY(1px);
+    }
+
+    .scroll-space {
+      width: 1px;
+      height: 520vh;
+      pointer-events: none;
+    }
+
+    /* --------------------------------------------------------------------------
+       Keyframes
+       -------------------------------------------------------------------------- */
+
+    @keyframes grainShift {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+      20% {
+        transform: translate3d(-2.2%, 1.4%, 0);
+      }
+      40% {
+        transform: translate3d(1.4%, -2%, 0);
+      }
+      60% {
+        transform: translate3d(-1.6%, -1.2%, 0);
+      }
+      80% {
+        transform: translate3d(2%, 1.8%, 0);
+      }
+    }
+
+    @keyframes dustRise {
+      from {
+        transform: translate3d(0, 12vh, 0);
+      }
+      to {
+        transform: translate3d(0, -98vh, 0);
+      }
+    }
+
+    @keyframes dustRiseAlt {
+      from {
+        transform: translate3d(0, 74vh, 0);
+      }
+      to {
+        transform: translate3d(0, -36vh, 0);
+      }
+    }
+
+    @keyframes hintSweep {
+      0% {
+        transform: translateX(-100%);
+      }
+      55% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    /* --------------------------------------------------------------------------
+       Responsive tuning
+       -------------------------------------------------------------------------- */
+
+    @media (max-width: 720px) {
+      .chrome {
+        padding-top: calc(18px + env(safe-area-inset-top));
+      }
+
+      .mark {
+        font-size: 12px;
+        letter-spacing: 0.22em;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .nav-link {
+        display: none;
+      }
+
+      .pill {
+        padding: 8px 12px 7px;
+        font-size: 9px;
+        letter-spacing: 0.13em;
+      }
+
+      .foot {
+        font-size: 9.5px;
+        letter-spacing: 0.13em;
+      }
+
+      .hint-line {
+        width: 30px;
+      }
+
+      .panel {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .eyebrow {
+        margin-bottom: 18px;
+        font-size: 11px;
+      }
+
+      .sub {
+        margin-top: 20px;
+      }
+
+      .cta {
+        margin-top: 28px;
+      }
+
+      .dune-watermark {
+        transform-origin: 50% 70%;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .mark {
+        font-size: 11px;
+      }
+
+      .pill {
+        padding: 8px 10px 7px;
+      }
+
+      .foot {
+        font-size: 9px;
+        letter-spacing: 0.11em;
+      }
+    }
+
+    @media (max-height: 560px) {
+      .panel {
+        padding-top: calc(72px + env(safe-area-inset-top));
+        padding-bottom: calc(58px + env(safe-area-inset-bottom));
+      }
+
+      .eyebrow {
+        margin-bottom: 12px;
+      }
+
+      .panel h1 {
+        font-size: clamp(28px, 8vh, 62px);
+      }
+
+      .sub {
+        margin-top: 14px;
+        font-size: clamp(14px, 2.4vh, 18px);
+        line-height: 1.45;
+      }
+
+      .cta {
+        margin-top: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      .film-grain,
+      .dust-motes::before,
+      .dust-motes::after,
+      .hint-line::after {
+        animation: none !important;
+      }
+
+      .hint-line::after {
+        transform: translateX(0);
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stage" aria-hidden="true">
+    <div class="window-shadow"></div>
+    <div class="dust-motes"></div>
+
+    <svg
+      class="dune-watermark"
+      id="ambientSvg"
+      viewBox="0 0 1600 1000"
+      preserveAspectRatio="xMidYMid slice"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.3"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <!-- Distant ridge lines -->
+      <g stroke-width="1.05" stroke-opacity="0.85">
+        <path d="M -80 596 C 170 462 344 444 544 546 C 722 636 864 706 1044 650 C 1244 588 1396 444 1680 506" />
+        <path d="M -80 686 C 190 560 374 552 574 646 C 762 734 904 798 1094 734 C 1288 668 1436 546 1680 604" />
+        <path d="M -80 782 C 212 662 398 666 598 750 C 788 830 938 898 1130 830 C 1322 762 1474 656 1680 708" />
+      </g>
+
+      <!-- Flowing page-edge hairlines -->
+      <g stroke-width="0.8" stroke-opacity="0.5">
+        <path d="M 40 1020 C 232 786 348 546 556 314" />
+        <path d="M 196 1020 C 380 806 486 596 690 366" />
+        <path d="M 352 1020 C 528 826 626 646 826 418" />
+        <path d="M 514 1020 C 672 846 764 694 958 468" />
+        <path d="M 682 1020 C 818 866 906 742 1096 516" />
+      </g>
+
+      <!-- Wind-carried horizontal strands -->
+      <g stroke-width="0.65" stroke-opacity="0.28">
+        <path d="M -80 452 C 300 400 620 486 920 452 C 1210 420 1460 470 1680 436" />
+        <path d="M -80 512 C 280 466 600 55
