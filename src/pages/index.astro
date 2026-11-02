@@ -109,7 +109,7 @@ const notes = (await notesByDate()).slice(0, 3);
       }
     </div>
     <p class="label sublabel">Log terbaru</p>
-    <ul class="log">
+    <ul class="log plain-list">
       {
         recentFilms
           .slice(0, 6)
@@ -146,7 +146,7 @@ const notes = (await notesByDate()).slice(0, 3);
     notes.length > 0 && (
       <section class="container section" aria-labelledby="catatan">
         <SectionHeader id="catatan" label="05 / Catatan" href="/catatan/" linkText="Arsip" />
-        <ul class="notes">
+        <ul class="notes plain-list">
           {notes.map((note) => (
             <NoteItem
               title={note.data.title}
@@ -224,10 +224,8 @@ const notes = (await notesByDate()).slice(0, 3);
     margin-top: 24px;
   }
 
-  .poster-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 32px 24px;
+  .poster-grid,
+  .book-grid {
     margin-top: 40px;
   }
 
@@ -237,19 +235,6 @@ const notes = (await notesByDate()).slice(0, 3);
     border-bottom: 1px solid var(--rule);
   }
 
-  .log,
-  .notes {
-    padding: 0;
-    list-style: none;
-  }
-
-  .book-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 32px 24px;
-    margin-top: 40px;
-  }
-
   .notes {
     margin-top: 16px;
   }
@@ -257,18 +242,5 @@ const notes = (await notesByDate()).slice(0, 3);
   .project {
     margin-top: 24px;
     font-size: var(--fs-lead);
-  }
-
-  @media (max-width: 900px) {
-    .poster-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 560px) {
-    .poster-grid,
-    .book-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
   }
 </style>

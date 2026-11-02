@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import BookCard from '../components/BookCard.astro';
+import { books, readBooks } from '../lib/data';
+
+const reading = books.filter((book) => book.shelf === 'currently-reading');
+const read = readBooks();
+---
+
+<BaseLayout title="Bacaan" description="Rak buku Iman Setia, disinkronkan dari Goodreads.">
+  <PageIntro label="Bacaan" title="Rak buku" meta={`${books.length} buku tercatat · sumber: Goodreads`}>
+    <p class="genres">
+      Genre favorit: klasik, kriminal, sejarah, misteri, puisi, thriller.
+    </p>
+  </PageIntro>
+
+  {
+    reading.length > 0 && (
+      <section class="container section" aria-labelledby="sedang">
+        <h2 class="label" id="sedang">Sedang dibaca · {reading.length}</h2>
+        <div class="book-grid">
+          {reading.map((book) => (
+            <BookCard title={book.title} author={book.author} href={book.goodreadsUrl} cover={book.cover} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="container section" aria-labelledby="sudah">
+    <h2 class="label" id="sudah">Sudah dibaca · {read.length}</h2>
+    <div class="book-grid">
+      {read.map((book) => <BookCard title={book.title} author={book.author} href={book.goodreadsUrl} cover={book.cover} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .genres {
+    margin-top: 16px;
+    max-width: 36em;
+    font-style: italic;
+    color: var(--ink-2);
+  }
+
+  h2 {
+    margin-bottom: 32px;
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+// Kepala halaman: label mono, H1, dan keterangan opsional di bawahnya.
+interface Props {
+  label: string;
+  title: string;
+  meta?: string;
+}
+
+const { label, title, meta } = Astro.props;
+---
+
+<header class="container page-intro">
+  <p class="label">{label}</p>
+  <h1>{title}</h1>
+  {meta && <p class="label meta">{meta}</p>}
+  <slot />
+</header>
+
+<style>
+  .page-intro {
+    padding-block: 40px 48px;
+  }
+
+  h1 {
+    margin-top: 20px;
+    font-size: var(--fs-h1);
+    line-height: 1.04;
+  }
+
+  .meta {
+    margin-top: 20px;
+  }
+</style>

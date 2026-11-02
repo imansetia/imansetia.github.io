@@ -90,6 +90,48 @@ h3 {
   padding-block: 32px 72px;
 }
 
+/* Daftar tanpa bullet (log, catatan) */
+.plain-list {
+  padding: 0;
+  list-style: none;
+}
+
+/* Grid poster: 5 kolom → 3 → 2 di HP. Grid buku: 4 kolom → 2 di HP. */
+.poster-grid,
+.book-grid {
+  display: grid;
+  gap: 32px 24px;
+}
+
+.poster-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.book-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .poster-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .poster-grid,
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Keadaan kosong */
+.empty {
+  padding: 24px;
+  border: 1px dashed var(--dash);
+  border-radius: var(--radius-card);
+  color: var(--muted);
+}
+
 /* Teks khusus pembaca layar */
 .sr-only {
   position: absolute;
