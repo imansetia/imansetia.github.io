@@ -87,6 +87,22 @@ export async function notesByDate() {
   return notes.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
+export type Note = Awaited<ReturnType<typeof notesByDate>>[number];
+
+/** Rute satu catatan, dipakai getStaticPaths di versi ID dan EN. */
+export async function noteStaticPaths() {
+  const notes = await notesByDate();
+  return notes.map((note) => {
+    // Terjemahan: catatan yang ditunjuk `translationOf`, atau yang menunjuk ke catatan ini.
+    const translation = notes.find(
+      (other) =>
+        other.id !== note.id &&
+        (other.id === note.data.translationOf || other.data.translationOf === note.id)
+    );
+    return { params: { slug: note.id }, props: { note, translation } };
+  });
+}
+
 /** "2026-10-28" → "28.10.2026" */
 export function formatDate(value: string | Date): string {
   const iso = typeof value === 'string' ? value : value.toISOString().slice(0, 10);

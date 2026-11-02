@@ -1,6 +1,7 @@
 ---
 import Rating from './Rating.astro';
 import { formatDate } from '../lib/data';
+import { langOf, useTranslations } from '../i18n/ui';
 
 interface Props {
   date: string | null;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const { date, title, year, rating, href } = Astro.props;
+const t = useTranslations(langOf(Astro.currentLocale));
 ---
 
 <li class="log-row">
@@ -18,7 +20,7 @@ const { date, title, year, rating, href } = Astro.props;
     date ? (
       <time class="date label" datetime={date}>{formatDate(date)}</time>
     ) : (
-      <span class="date label">Tanpa tanggal</span>
+      <span class="date label">{t('date.none')}</span>
     )
   }
   <a class="title" href={href}><em>{title}</em></a>

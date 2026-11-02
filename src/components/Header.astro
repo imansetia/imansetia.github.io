@@ -1,12 +1,22 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import { langOf, otherLang, routes, useTranslations } from '../i18n/ui';
 
-// Halaman-halaman ini baru dibuat di Tahap 4.
+interface Props {
+  // Alamat halaman padanan di bahasa lain, untuk toggle ID / EN.
+  alternate: string;
+}
+
+const { alternate } = Astro.props;
+const lang = langOf(Astro.currentLocale);
+const t = useTranslations(lang);
+const other = otherLang(lang);
+
 const links = [
-  { href: '/tontonan/', label: 'Tontonan' },
-  { href: '/bacaan/', label: 'Bacaan' },
-  { href: '/catatan/', label: 'Catatan' },
-  { href: '/tentang/', label: 'Tentang' },
+  { href: routes.films[lang], label: t('nav.films') },
+  { href: routes.books[lang], label: t('nav.books') },
+  { href: routes.notes[lang], label: t('nav.notes') },
+  { href: routes.about[lang], label: t('nav.about') },
 ];
 
 const path = Astro.url.pathname;
@@ -14,9 +24,9 @@ const path = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container inner">
-    <a href="/" class="brand">Iman Setia</a>
+    <a href={routes.home[lang]} class="brand">Iman Setia</a>
     <div class="tools">
-      <nav aria-label="Navigasi utama">
+      <nav aria-label={t('nav.label')}>
         <ul>
           {
             links.map((link) => (
@@ -29,6 +39,24 @@ const path = Astro.url.pathname;
           }
         </ul>
       </nav>
+      <div class="lang" role="group" aria-label={t('lang.label')}>
+        {
+          (['id', 'en'] as const).map((code, i) => (
+            <>
+              {i > 0 && <span aria-hidden="true">/</span>}
+              {code === lang ? (
+                <span class="current" aria-current="true" lang={code}>
+                  {code.toUpperCase()}
+                </span>
+              ) : (
+                <a href={alternate} hreflang={other} lang={code}>
+                  {code.toUpperCase()}
+                </a>
+              )}
+            </>
+          ))
+        }
+      </div>
       <ThemeToggle />
     </div>
   </div>
@@ -72,7 +100,8 @@ const path = Astro.url.pathname;
     list-style: none;
   }
 
-  nav a {
+  nav a,
+  .lang {
     font-family: var(--font-mono);
     font-size: var(--fs-nav);
     letter-spacing: var(--tracking-label);
@@ -84,6 +113,27 @@ const path = Astro.url.pathname;
   nav a:hover,
   nav a[aria-current='page'] {
     color: var(--ink);
+    text-decoration: underline;
+  }
+
+  .lang {
+    display: flex;
+    gap: 6px;
+    color: var(--muted);
+  }
+
+  .lang .current {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .lang a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .lang a:hover {
+    color: var(--accent-hover);
     text-decoration: underline;
   }
 </style>

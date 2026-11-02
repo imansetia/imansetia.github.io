@@ -1,13 +1,17 @@
 ---
 // Rating 0.5–5 sebagai bintang. Tanpa rating: "—".
+import { langOf, useTranslations, formatNumber } from '../i18n/ui';
+
 interface Props {
   value?: number | null;
 }
 
 const { value } = Astro.props;
+const lang = langOf(Astro.currentLocale);
+const t = useTranslations(lang);
 const hasRating = typeof value === 'number' && value > 0;
 const stars = hasRating ? '★'.repeat(Math.floor(value)) + (value % 1 ? '½' : '') : '';
-const spoken = hasRating ? `${String(value).replace('.', ',')} dari 5` : 'tanpa rating';
+const spoken = hasRating ? t('rating.of', { n: formatNumber(lang, value) }) : t('rating.none');
 ---
 
 {

@@ -1,0 +1,10 @@
+---
+import Note from '../../../views/Note.astro';
+import { noteStaticPaths } from '../../../lib/data';
+
+export const getStaticPaths = noteStaticPaths;
+
+const { note, translation } = Astro.props;
+---
+
+<Note note={note} translation={translation} />

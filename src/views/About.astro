@@ -1,0 +1,81 @@
+---
+// Halaman Tentang, dipakai oleh /tentang/ dan /en/about/.
+// Teks berkurung siku [ ... ] di src/i18n/ui.ts ditulis Iman (DESIGN.md bagian 8 & 11).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { langOf, otherLang, routes, useTranslations } from '../i18n/ui';
+
+const lang = langOf(Astro.currentLocale);
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('about.title')}
+  description={t('about.description')}
+  alternate={routes.about[otherLang(lang)]}
+>
+  <PageIntro label={t('about.title')} title={t('about.heading')} />
+
+  <div class="container about">
+    <section class="section" aria-labelledby="bio">
+      <h2 class="label" id="bio">{t('about.bio')}</h2>
+      <div class="text">
+        <p>{t('about.bioText')}</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="pendidikan">
+      <h2 class="label" id="pendidikan">{t('about.education')}</h2>
+      <dl class="text facts">
+        <dt>{t('about.degree')}</dt>
+        <dd>{t('about.school')}</dd>
+      </dl>
+    </section>
+
+    <section class="section" aria-labelledby="minat">
+      <h2 class="label" id="minat">{t('about.interests')}</h2>
+      <div class="text">
+        <p>{t('about.interestsText')}</p>
+        <p>{t('about.interestsMore')}</p>
+        <p>
+          {t('projects.text')} <a href="https://botchan.tech">botchan.tech</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="kontak">
+      <h2 class="label" id="kontak">{t('about.contact')}</h2>
+      <div class="text">
+        <p><a href="mailto:imansetiahalawa@gmail.com">imansetiahalawa@gmail.com</a></p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about .section {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 680px);
+    gap: 12px 24px;
+    padding-bottom: 48px;
+  }
+
+  .text p + p {
+    margin-top: 0.9em;
+  }
+
+  .facts {
+    margin: 0;
+  }
+
+  .facts dd {
+    margin: 0;
+    color: var(--ink-2);
+  }
+
+  @media (max-width: 640px) {
+    .about .section {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

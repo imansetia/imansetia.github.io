@@ -1,5 +1,6 @@
 ---
 import { formatDate, isoDate } from '../lib/data';
+import { langOf, useTranslations } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -11,13 +12,14 @@ interface Props {
 }
 
 const { title, date, lang, summary, href, draft } = Astro.props;
+const t = useTranslations(langOf(Astro.currentLocale));
 ---
 
 <li class="note-item" data-lang={lang}>
   <p class="label meta">
     <time datetime={isoDate(date)}>{formatDate(date)}</time>
     <span>{lang.toUpperCase()}</span>
-    {draft && <span>Draft</span>}
+    {draft && <span>{t('draft')}</span>}
   </p>
   <div lang={lang}>
     <h3 class="title"><a href={href}>{title}</a></h3>

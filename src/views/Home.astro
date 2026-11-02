@@ -1,0 +1,250 @@
+---
+// Beranda, dipakai oleh / dan /en/. Bahasa diambil dari alamat halaman.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import NowCard from '../components/NowCard.astro';
+import PosterCard from '../components/PosterCard.astro';
+import LogRow from '../components/LogRow.astro';
+import BookCard from '../components/BookCard.astro';
+import NoteItem from '../components/NoteItem.astro';
+import {
+  filmCount,
+  books,
+  favorites,
+  datedFilms,
+  readBooks,
+  currentlyReading,
+  ratingFor,
+  latestEntryDate,
+  notesByDate,
+  formatDate,
+} from '../lib/data';
+import { langOf, otherLang, routes, notePath, useTranslations } from '../i18n/ui';
+
+const lang = langOf(Astro.currentLocale);
+const t = useTranslations(lang);
+
+const recentFilms = datedFilms();
+const lastWatched = recentFilms[0];
+const reading = currentlyReading();
+const latest = latestEntryDate();
+const shelf = readBooks().slice(0, 4);
+const notes = (await notesByDate()).slice(0, 3);
+---
+
+<BaseLayout alternate={routes.home[otherLang(lang)]}>
+  <!-- 01 / BERANDA -->
+  <section class="container section intro" aria-labelledby="judul">
+    <SectionHeader label={t('home.label')} />
+    <h1 id="judul">{t('home.hello')} <em>Iman</em>.</h1>
+    <p class="lead">{t('home.lead')}</p>
+    <ul class="label meta-row">
+      <li>{t('home.place')}</li>
+      <li>{t('home.filmCount', { n: filmCount() })}</li>
+      <li>{t('home.bookCount', { n: books.length })}</li>
+      <li>{t('home.sync')}</li>
+    </ul>
+  </section>
+
+  <!-- 02 / SEKARANG -->
+  {
+    (lastWatched || reading) && (
+      <section class="container section" aria-labelledby="sekarang">
+        <SectionHeader
+          id="sekarang"
+          label={t('now.label')}
+          meta={latest ? t('now.latest', { date: formatDate(latest) }) : undefined}
+        />
+        <div class="now-grid">
+          {lastWatched && (
+            <NowCard
+              label={t('now.watched')}
+              title={lastWatched.title}
+              year={lastWatched.year}
+              byline={[
+                [lastWatched.director, lastWatched.year].filter(Boolean).join(', '),
+                lastWatched.rewatch ? t('now.rewatch') : '',
+              ]
+                .filter(Boolean)
+                .join(' · ')}
+              href={lastWatched.letterboxdUrl}
+              image={lastWatched.poster}
+              review={lastWatched.review}
+              rating={lastWatched.rating}
+            />
+          )}
+          {reading && (
+            <NowCard
+              variant="book"
+              label={t('now.reading')}
+              title={reading.title}
+              byline={reading.author}
+              href={reading.goodreadsUrl}
+              image={reading.cover}
+            />
+          )}
+        </div>
+      </section>
+    )
+  }
+
+  <!-- 03 / TONTONAN -->
+  <section class="container section" aria-labelledby="tontonan">
+    <SectionHeader
+      label={t('films.label')}
+      href={routes.films[lang]}
+      linkText={t('films.seeAll', { n: filmCount() })}
+    />
+    <h2 id="tontonan">{t('films.heading')}</h2>
+    <p class="subtitle">{t('films.subtitle')}</p>
+    <div class="poster-grid">
+      {
+        favorites.map((film, i) => (
+          <PosterCard
+            title={film.title}
+            year={film.year}
+            director={film.director}
+            rating={ratingFor(film.title, film.year)}
+            href={film.letterboxdUrl}
+            poster={film.poster}
+            index={i}
+          />
+        ))
+      }
+    </div>
+    <p class="label sublabel">{t('films.recent')}</p>
+    <ul class="log plain-list">
+      {
+        recentFilms
+          .slice(0, 6)
+          .map((film) => (
+            <LogRow
+              date={film.watchedDate}
+              title={film.title}
+              year={film.year}
+              rating={film.rating}
+              href={film.letterboxdUrl}
+            />
+          ))
+      }
+    </ul>
+  </section>
+
+  <!-- 04 / BACAAN -->
+  {
+    shelf.length > 0 && (
+      <section class="container section" aria-labelledby="bacaan">
+        <SectionHeader label={t('books.label')} href={routes.books[lang]} linkText={t('books.fullShelf')} />
+        <h2 id="bacaan">{t('books.heading')}</h2>
+        <div class="book-grid">
+          {shelf.map((book) => (
+            <BookCard title={book.title} author={book.author} href={book.goodreadsUrl} cover={book.cover} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <!-- 05 / CATATAN — disembunyikan bila belum ada catatan -->
+  {
+    notes.length > 0 && (
+      <section class="container section" aria-labelledby="catatan">
+        <SectionHeader id="catatan" label={t('notes.label')} href={routes.notes[lang]} linkText={t('notes.archive')} />
+        <ul class="notes plain-list">
+          {notes.map((note) => (
+            <NoteItem
+              title={note.data.title}
+              date={note.data.date}
+              lang={note.data.lang}
+              summary={note.data.summary}
+              href={notePath(lang, note.id)}
+              draft={note.data.draft}
+            />
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <!-- 06 / PROYEK -->
+  <section class="container section" aria-labelledby="proyek">
+    <SectionHeader id="proyek" label={t('projects.label')} />
+    <p class="project">
+      {t('projects.text')} <a href="https://botchan.tech">botchan.tech</a>.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro {
+    border-top: 0;
+    padding-top: 40px;
+  }
+
+  h1 {
+    margin-top: 24px;
+    font-size: var(--fs-h1);
+    line-height: 1.04;
+  }
+
+  .lead {
+    margin-top: 24px;
+    max-width: 36em;
+    font-size: var(--fs-lead);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 0;
+    margin-top: 32px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .meta-row li:not(:last-child)::after {
+    content: '·';
+    margin-inline: 12px;
+  }
+
+  h2 {
+    margin-top: 24px;
+    font-size: var(--fs-h2);
+  }
+
+  .subtitle {
+    margin-top: 12px;
+    max-width: 36em;
+    font-style: italic;
+    color: var(--ink-2);
+  }
+
+  .now-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .poster-grid,
+  .book-grid {
+    margin-top: 40px;
+  }
+
+  .sublabel {
+    margin-top: 56px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .notes {
+    margin-top: 16px;
+  }
+
+  .project {
+    margin-top: 24px;
+    font-size: var(--fs-lead);
+  }
+</style>

@@ -1,8 +1,18 @@
 ---
 // Tombol ganti tema terang/gelap. Pilihan disimpan di localStorage.
+import { langOf, useTranslations } from '../i18n/ui';
+
+const t = useTranslations(langOf(Astro.currentLocale));
 ---
 
-<button type="button" class="theme-toggle" data-theme-toggle aria-label="Ganti tema">
+<button
+  type="button"
+  class="theme-toggle"
+  data-theme-toggle
+  data-label-dark={t('theme.toDark')}
+  data-label-light={t('theme.toLight')}
+  aria-label={t('theme.toDark')}
+>
   <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
     <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
   </svg>
@@ -23,10 +33,8 @@
   }
 
   function updateLabel(button: HTMLButtonElement) {
-    button.setAttribute(
-      'aria-label',
-      currentTheme() === 'dark' ? 'Ganti ke tema terang' : 'Ganti ke tema gelap'
-    );
+    const label = currentTheme() === 'dark' ? button.dataset.labelLight : button.dataset.labelDark;
+    if (label) button.setAttribute('aria-label', label);
   }
 
   document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((button) => {

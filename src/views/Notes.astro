@@ -1,0 +1,97 @@
+---
+// Daftar catatan, dipakai oleh /catatan/ dan /en/notes/.
+// Catatan tidak wajib diterjemahkan: semua catatan tampil di kedua versi dengan label bahasanya.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import NoteItem from '../components/NoteItem.astro';
+import { notesByDate } from '../lib/data';
+import { langOf, otherLang, routes, notePath, useTranslations } from '../i18n/ui';
+
+const lang = langOf(Astro.currentLocale);
+const t = useTranslations(lang);
+const notes = await notesByDate();
+---
+
+<BaseLayout
+  title={t('notesPage.title')}
+  description={t('notesPage.description')}
+  alternate={routes.notes[otherLang(lang)]}
+>
+  <PageIntro
+    label={t('notesPage.title')}
+    title={t('notesPage.heading')}
+    meta={t('notesPage.meta', { n: notes.length })}
+  />
+
+  <div class="container notes-page">
+    {
+      notes.length > 0 ? (
+        <>
+          <!-- Filter bahasa lewat anchor (#id / #en), tanpa JavaScript -->
+          <span id="id" class="filter-target" />
+          <span id="en" class="filter-target" />
+          <nav class="filter label" aria-label={t('notesPage.filter')}>
+            <a href="#semua" class="f-all">{t('notesPage.all')}</a>
+            <a href="#id" class="f-id">ID</a>
+            <a href="#en" class="f-en">EN</a>
+          </nav>
+          <ul class="plain-list list">
+            {notes.map((note) => (
+              <NoteItem
+                title={note.data.title}
+                date={note.data.date}
+                lang={note.data.lang}
+                summary={note.data.summary}
+                href={notePath(lang, note.id)}
+                draft={note.data.draft}
+              />
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p class="empty">{t('notesPage.empty')}</p>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .notes-page {
+    border-top: 1px solid var(--ink);
+    padding-top: 24px;
+  }
+
+  .filter-target {
+    position: absolute;
+  }
+
+  .filter {
+    display: flex;
+    gap: 20px;
+  }
+
+  .filter a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .filter a:hover {
+    text-decoration: underline;
+  }
+
+  .list {
+    margin-top: 8px;
+  }
+
+  .notes-page:has(#id:target) :global(.note-item:not([data-lang='id'])),
+  .notes-page:has(#en:target) :global(.note-item:not([data-lang='en'])) {
+    display: none;
+  }
+
+  .notes-page:not(:has(.filter-target:target)) .f-all,
+  .notes-page:has(#id:target) .f-id,
+  .notes-page:has(#en:target) .f-en {
+    color: var(--ink);
+    text-decoration: underline;
+  }
+</style>

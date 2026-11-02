@@ -1,0 +1,60 @@
+---
+// Rak buku, dipakai oleh /bacaan/ dan /en/books/.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import BookCard from '../components/BookCard.astro';
+import { books, readBooks } from '../lib/data';
+import { langOf, otherLang, routes, useTranslations } from '../i18n/ui';
+
+const lang = langOf(Astro.currentLocale);
+const t = useTranslations(lang);
+const reading = books.filter((book) => book.shelf === 'currently-reading');
+const read = readBooks();
+---
+
+<BaseLayout
+  title={t('booksPage.title')}
+  description={t('booksPage.description')}
+  alternate={routes.books[otherLang(lang)]}
+>
+  <PageIntro
+    label={t('booksPage.title')}
+    title={t('booksPage.heading')}
+    meta={t('booksPage.meta', { n: books.length })}
+  >
+    <p class="genres">{t('booksPage.genres')}</p>
+  </PageIntro>
+
+  {
+    reading.length > 0 && (
+      <section class="container section" aria-labelledby="sedang">
+        <h2 class="label" id="sedang">{t('booksPage.reading', { n: reading.length })}</h2>
+        <div class="book-grid">
+          {reading.map((book) => (
+            <BookCard title={book.title} author={book.author} href={book.goodreadsUrl} cover={book.cover} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="container section" aria-labelledby="sudah">
+    <h2 class="label" id="sudah">{t('booksPage.read', { n: read.length })}</h2>
+    <div class="book-grid">
+      {read.map((book) => <BookCard title={book.title} author={book.author} href={book.goodreadsUrl} cover={book.cover} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .genres {
+    margin-top: 16px;
+    max-width: 36em;
+    font-style: italic;
+    color: var(--ink-2);
+  }
+
+  h2 {
+    margin-bottom: 32px;
+  }
+</style>
