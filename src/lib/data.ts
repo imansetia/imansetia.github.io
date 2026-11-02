@@ -10,7 +10,7 @@ export interface Film {
   year: number;
   director?: string;
   rating: number | null;
-  watchedDate: string; // YYYY-MM-DD
+  watchedDate: string | null; // YYYY-MM-DD; null bila hanya ditandai "watched" tanpa diary
   rewatch: boolean;
   review?: string;
   letterboxdUrl: string;
@@ -43,9 +43,19 @@ export const films = filmsData as Film[];
 export const books = booksData as Book[];
 export const favorites = favoritesData as Favorite[];
 
-/** Film terbaru lebih dulu. */
+/** Film terbaru lebih dulu; film tanpa tanggal di akhir. */
 export function filmsByDate(): Film[] {
-  return [...films].sort((a, b) => b.watchedDate.localeCompare(a.watchedDate));
+  return [...films].sort((a, b) => (b.watchedDate ?? '').localeCompare(a.watchedDate ?? ''));
+}
+
+/** Entri log yang punya tanggal tonton, terbaru lebih dulu. */
+export function datedFilms(): Film[] {
+  return filmsByDate().filter((film) => film.watchedDate);
+}
+
+/** Jumlah film berbeda (tonton ulang tidak dihitung dua kali). */
+export function filmCount(): number {
+  return new Set(films.map((film) => `${film.title}|${film.year}`)).size;
 }
 
 /** Buku di rak "read", terbaru lebih dulu. */
@@ -67,7 +77,7 @@ export function ratingFor(title: string, year: number): number | null {
 
 /** Tanggal entri paling baru di antara film dan buku. */
 export function latestEntryDate(): string | undefined {
-  const dates = [...films.map((f) => f.watchedDate), ...books.map((b) => b.dateRead ?? '')];
+  const dates = [...films.map((f) => f.watchedDate ?? ''), ...books.map((b) => b.dateRead ?? '')];
   return dates.filter(Boolean).sort().at(-1);
 }
 

@@ -1,69 +1,774 @@
 [
   {
-    "id": "sample-capernaum",
-    "title": "Capernaum",
-    "year": 2018,
-    "director": "Nadine Labaki",
-    "rating": 5,
-    "watchedDate": "2026-10-28",
-    "rewatch": true,
-    "review": "[ULASAN CONTOH — diganti data asli di Tahap 3]",
-    "letterboxdUrl": "https://letterboxd.com/film/capernaum/",
-    "tmdbId": null
-  },
-  {
-    "id": "sample-the-battle-of-algiers",
-    "title": "The Battle of Algiers",
-    "year": 1966,
-    "director": "Gillo Pontecorvo",
-    "rating": 4.5,
-    "watchedDate": "2026-10-19",
-    "rewatch": false,
-    "letterboxdUrl": "https://letterboxd.com/film/the-battle-of-algiers/",
-    "tmdbId": null
-  },
-  {
-    "id": "sample-hope",
-    "title": "Hope",
-    "year": 2013,
-    "director": "Lee Joon-ik",
-    "rating": 4.5,
-    "watchedDate": "2026-10-07",
-    "rewatch": false,
-    "letterboxdUrl": "https://letterboxd.com/film/hope-2013/",
-    "tmdbId": null
-  },
-  {
-    "id": "sample-the-hunt",
-    "title": "The Hunt",
-    "year": 2012,
-    "director": "Thomas Vinterberg",
-    "rating": 5,
-    "watchedDate": "2026-09-21",
-    "rewatch": false,
-    "letterboxdUrl": "https://letterboxd.com/film/the-hunt-2012/",
-    "tmdbId": null
-  },
-  {
-    "id": "sample-parasite",
-    "title": "Parasite",
-    "year": 2019,
-    "director": "Bong Joon Ho",
-    "rating": null,
-    "watchedDate": "2026-09-02",
-    "rewatch": true,
-    "letterboxdUrl": "https://letterboxd.com/film/parasite-2019/",
-    "tmdbId": null
-  },
-  {
-    "id": "sample-incendies",
+    "id": "cdbuR5",
     "title": "Incendies",
     "year": 2010,
-    "director": "Denis Villeneuve",
-    "rating": 4,
-    "watchedDate": "2026-08-15",
+    "rating": 5,
+    "watchedDate": "2024-12-03",
+    "rewatch": true,
+    "review": "1+1=1",
+    "letterboxdUrl": "https://boxd.it/Msm",
+    "tmdbId": null
+  },
+  {
+    "id": "clwcKJ",
+    "title": "John Wick: Chapter 3 – Parabellum",
+    "year": 2019,
+    "rating": 3.5,
+    "watchedDate": "2024-12-03",
     "rewatch": false,
-    "letterboxdUrl": "https://letterboxd.com/film/incendies/",
+    "letterboxdUrl": "https://boxd.it/gmFw",
+    "tmdbId": null
+  },
+  {
+    "id": "clwedn",
+    "title": "John Wick: Chapter 4",
+    "year": 2023,
+    "rating": 3,
+    "watchedDate": "2024-12-03",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/mh48",
+    "tmdbId": null
+  },
+  {
+    "id": "clwHud",
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "year": 2004,
+    "rating": 2.5,
+    "watchedDate": "2024-11-01",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/6YK",
+    "tmdbId": null
+  },
+  {
+    "id": "clwJNL",
+    "title": "The Beekeeper",
+    "year": 2024,
+    "rating": 3.5,
+    "watchedDate": "2024-11-01",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/wJzS",
+    "tmdbId": null
+  },
+  {
+    "id": "cd3knX",
+    "title": "Man on Fire",
+    "year": 2004,
+    "rating": 4,
+    "watchedDate": "2024-10-31",
+    "rewatch": true,
+    "review": "\"Revenge is a meal best served cold.\" - Creasy",
+    "letterboxdUrl": "https://boxd.it/1Yvk",
+    "tmdbId": null
+  },
+  {
+    "id": "clwmS9",
+    "title": "The Battle of Algiers",
+    "year": 1966,
+    "rating": 4,
+    "watchedDate": "2024-04-21",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1IRY",
+    "tmdbId": null
+  },
+  {
+    "id": "clwLoj",
+    "title": "Baby Driver",
+    "year": 2017,
+    "rating": 4,
+    "watchedDate": "2022-04-01",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/bhF2",
+    "tmdbId": null
+  },
+  {
+    "id": "clwEOJ",
+    "title": "Olympus Has Fallen",
+    "year": 2013,
+    "rating": 3.5,
+    "watchedDate": "2021-06-05",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/3TMY",
+    "tmdbId": null
+  },
+  {
+    "id": "clwvyn",
+    "title": "Hope",
+    "year": 2013,
+    "rating": 4.5,
+    "watchedDate": "2021-05-26",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/7x5Q",
+    "tmdbId": null
+  },
+  {
+    "id": "clwiW7",
+    "title": "Parasite",
+    "year": 2019,
+    "rating": 4.5,
+    "watchedDate": "2021-05-24",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/hTha",
+    "tmdbId": null
+  },
+  {
+    "id": "clwtdd",
+    "title": "Grave of the Fireflies",
+    "year": 1988,
+    "rating": 3,
+    "watchedDate": "2021-05-22",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1RUM",
+    "tmdbId": null
+  },
+  {
+    "id": "clwwXD",
+    "title": "No Mercy",
+    "year": 2010,
+    "rating": 4,
+    "watchedDate": "2021-05-21",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/Dze",
+    "tmdbId": null
+  },
+  {
+    "id": "clwg9H",
+    "title": "Donnie Darko",
+    "year": 2001,
+    "rating": 0.5,
+    "watchedDate": "2021-04-20",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/2b2A",
+    "tmdbId": null
+  },
+  {
+    "id": "clw7tj",
+    "title": "John Wick",
+    "year": 2014,
+    "rating": 4,
+    "watchedDate": "2021-02-01",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/7dEc",
+    "tmdbId": null
+  },
+  {
+    "id": "clw8YR",
+    "title": "John Wick: Chapter 2",
+    "year": 2017,
+    "rating": null,
+    "watchedDate": "2021-02-01",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/ayGu",
+    "tmdbId": null
+  },
+  {
+    "id": "clvYsr",
+    "title": "Saving Private Ryan",
+    "year": 1998,
+    "rating": 3.5,
+    "watchedDate": "2021-01-26",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/29ro",
+    "tmdbId": null
+  },
+  {
+    "id": "clvWMz",
+    "title": "1917",
+    "year": 2019,
+    "rating": 4,
+    "watchedDate": "2021-01-25",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/jj4y",
+    "tmdbId": null
+  },
+  {
+    "id": "clvUlV",
+    "title": "The Shawshank Redemption",
+    "year": 1994,
+    "rating": 4,
+    "watchedDate": "2021-01-21",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/2aHi",
+    "tmdbId": null
+  },
+  {
+    "id": "clvSkr",
+    "title": "The Hunt",
+    "year": 2012,
+    "rating": 4.5,
+    "watchedDate": "2021-01-20",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/3wEC",
+    "tmdbId": null
+  },
+  {
+    "id": "clvPMn",
+    "title": "Salò, or the 120 Days of Sodom",
+    "year": 1975,
+    "rating": 3.5,
+    "watchedDate": "2021-01-17",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/237s",
+    "tmdbId": null
+  },
+  {
+    "id": "clvKkX",
+    "title": "Life of Pi",
+    "year": 2012,
+    "rating": 3,
+    "watchedDate": "2020-07-01",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/37pC",
+    "tmdbId": null
+  },
+  {
+    "id": "clw3wt",
+    "title": "Kickboxer: Retaliation",
+    "year": 2018,
+    "rating": 3.5,
+    "watchedDate": "2019-11-20",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/fWD0",
+    "tmdbId": null
+  },
+  {
+    "id": "clw22H",
+    "title": "Kickboxer: Vengeance",
+    "year": 2016,
+    "rating": 4,
+    "watchedDate": "2019-11-20",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/9T1U",
+    "tmdbId": null
+  },
+  {
+    "id": "clwCE3",
+    "title": "World War Z",
+    "year": 2013,
+    "rating": 2.5,
+    "watchedDate": "2019-08-17",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/2p2E",
+    "tmdbId": null
+  },
+  {
+    "id": "clwr5V",
+    "title": "Train to Busan",
+    "year": 2016,
+    "rating": 4,
+    "watchedDate": "2019-05-02",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/dSQU",
+    "tmdbId": null
+  },
+  {
+    "id": "clvGPd",
+    "title": "Capernaum",
+    "year": 2018,
+    "rating": 5,
+    "watchedDate": "2019-03-04",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/iM3s",
+    "tmdbId": null
+  },
+  {
+    "id": "clwzA3",
+    "title": "2012",
+    "year": 2009,
+    "rating": 2.5,
+    "watchedDate": "2018-11-26",
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1OE2",
+    "tmdbId": null
+  },
+  {
+    "id": "2bf0",
+    "title": "2001: A Space Odyssey",
+    "year": 1968,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/2bf0",
+    "tmdbId": null
+  },
+  {
+    "id": "1JP0",
+    "title": "All About Lily Chou-Chou",
+    "year": 2001,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1JP0",
+    "tmdbId": null
+  },
+  {
+    "id": "23wi",
+    "title": "American Gangster",
+    "year": 2007,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/23wi",
+    "tmdbId": null
+  },
+  {
+    "id": "2bfu",
+    "title": "Amores Perros",
+    "year": 2000,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/2bfu",
+    "tmdbId": null
+  },
+  {
+    "id": "yuDE",
+    "title": "Anatomy of a Fall",
+    "year": 2023,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/yuDE",
+    "tmdbId": null
+  },
+  {
+    "id": "25A2",
+    "title": "Barry Lyndon",
+    "year": 1975,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/25A2",
+    "tmdbId": null
+  },
+  {
+    "id": "2bcU",
+    "title": "Before Sunrise",
+    "year": 1995,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/2bcU",
+    "tmdbId": null
+  },
+  {
+    "id": "27MY",
+    "title": "Crank",
+    "year": 2006,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/27MY",
+    "tmdbId": null
+  },
+  {
+    "id": "1MPs",
+    "title": "Crank: High Voltage",
+    "year": 2009,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1MPs",
+    "tmdbId": null
+  },
+  {
+    "id": "9uyE",
+    "title": "Expend4bles",
+    "year": 2023,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/9uyE",
+    "tmdbId": null
+  },
+  {
+    "id": "dnDA",
+    "title": "Fast & Furious Presents: Hobbs & Shaw",
+    "year": 2019,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/dnDA",
+    "tmdbId": null
+  },
+  {
+    "id": "1NTU",
+    "title": "Harakiri",
+    "year": 1962,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1NTU",
+    "tmdbId": null
+  },
+  {
+    "id": "4O24",
+    "title": "Her",
+    "year": 2013,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/4O24",
+    "tmdbId": null
+  },
+  {
+    "id": "67Wi",
+    "title": "Homefront",
+    "year": 2013,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/67Wi",
+    "tmdbId": null
+  },
+  {
+    "id": "1JzG",
+    "title": "Inglourious Basterds",
+    "year": 2009,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1JzG",
+    "tmdbId": null
+  },
+  {
+    "id": "4VZ8",
+    "title": "Interstellar",
+    "year": 2014,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/4VZ8",
+    "tmdbId": null
+  },
+  {
+    "id": "70w",
+    "title": "Kill Bill: Vol. 1",
+    "year": 2003,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/70w",
+    "tmdbId": null
+  },
+  {
+    "id": "2wRE",
+    "title": "Lawrence of Arabia",
+    "year": 1962,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/2wRE",
+    "tmdbId": null
+  },
+  {
+    "id": "3v1u",
+    "title": "Maleficent",
+    "year": 2014,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/3v1u",
+    "tmdbId": null
+  },
+  {
+    "id": "hJAw",
+    "title": "Marriage Story",
+    "year": 2019,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/hJAw",
+    "tmdbId": null
+  },
+  {
+    "id": "8wj0",
+    "title": "Mechanic: Resurrection",
+    "year": 2016,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/8wj0",
+    "tmdbId": null
+  },
+  {
+    "id": "1TSo",
+    "title": "Memories of Murder",
+    "year": 2003,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1TSo",
+    "tmdbId": null
+  },
+  {
+    "id": "lnRy",
+    "title": "Nomadland",
+    "year": 2020,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/lnRy",
+    "tmdbId": null
+  },
+  {
+    "id": "29Ts",
+    "title": "Paris, Texas",
+    "year": 1984,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/29Ts",
+    "tmdbId": null
+  },
+  {
+    "id": "3Xr6",
+    "title": "Parker",
+    "year": 2013,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/3Xr6",
+    "tmdbId": null
+  },
+  {
+    "id": "ZQc",
+    "title": "Peppermint Candy",
+    "year": 1999,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/ZQc",
+    "tmdbId": null
+  },
+  {
+    "id": "1Tlu",
+    "title": "Ran",
+    "year": 1985,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1Tlu",
+    "tmdbId": null
+  },
+  {
+    "id": "29zs",
+    "title": "Se7en",
+    "year": 1995,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/29zs",
+    "tmdbId": null
+  },
+  {
+    "id": "4TUK",
+    "title": "The Equalizer",
+    "year": 2014,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/4TUK",
+    "tmdbId": null
+  },
+  {
+    "id": "bAEW",
+    "title": "The Equalizer 2",
+    "year": 2018,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/bAEW",
+    "tmdbId": null
+  },
+  {
+    "id": "yU54",
+    "title": "The Equalizer 3",
+    "year": 2023,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/yU54",
+    "tmdbId": null
+  },
+  {
+    "id": "1rtA",
+    "title": "The Expendables",
+    "year": 2010,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1rtA",
+    "tmdbId": null
+  },
+  {
+    "id": "2CPE",
+    "title": "The Expendables 2",
+    "year": 2012,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/2CPE",
+    "tmdbId": null
+  },
+  {
+    "id": "4rmK",
+    "title": "The Expendables 3",
+    "year": 2014,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/4rmK",
+    "tmdbId": null
+  },
+  {
+    "id": "bbCw",
+    "title": "The Fate of the Furious",
+    "year": 2017,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/bbCw",
+    "tmdbId": null
+  },
+  {
+    "id": "2aNK",
+    "title": "The Godfather",
+    "year": 1972,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/2aNK",
+    "tmdbId": null
+  },
+  {
+    "id": "2aNq",
+    "title": "The Godfather Part II",
+    "year": 1974,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/2aNq",
+    "tmdbId": null
+  },
+  {
+    "id": "3ZqO",
+    "title": "The Grand Budapest Hotel",
+    "year": 2014,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/3ZqO",
+    "tmdbId": null
+  },
+  {
+    "id": "948A",
+    "title": "The Handmaiden",
+    "year": 2016,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/948A",
+    "tmdbId": null
+  },
+  {
+    "id": "1rtg",
+    "title": "The Mechanic",
+    "year": 2011,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1rtg",
+    "tmdbId": null
+  },
+  {
+    "id": "lScm",
+    "title": "The Menu",
+    "year": 2022,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/lScm",
+    "tmdbId": null
+  },
+  {
+    "id": "293w",
+    "title": "The Prestige",
+    "year": 2006,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/293w",
+    "tmdbId": null
+  },
+  {
+    "id": "3hBy",
+    "title": "The Raid",
+    "year": 2011,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/3hBy",
+    "tmdbId": null
+  },
+  {
+    "id": "5uz0",
+    "title": "The Raid 2",
+    "year": 2014,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/5uz0",
+    "tmdbId": null
+  },
+  {
+    "id": "20Z2",
+    "title": "There Will Be Blood",
+    "year": 2007,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/20Z2",
+    "tmdbId": null
+  },
+  {
+    "id": "1YWq",
+    "title": "Transporter 2",
+    "year": 2005,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1YWq",
+    "tmdbId": null
+  },
+  {
+    "id": "1QhE",
+    "title": "Transporter 3",
+    "year": 2008,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/1QhE",
+    "tmdbId": null
+  },
+  {
+    "id": "7bQA",
+    "title": "Whiplash",
+    "year": 2014,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/7bQA",
+    "tmdbId": null
+  },
+  {
+    "id": "nEia",
+    "title": "Wrath of Man",
+    "year": 2021,
+    "rating": null,
+    "watchedDate": null,
+    "rewatch": false,
+    "letterboxdUrl": "https://boxd.it/nEia",
     "tmdbId": null
   }
 ]

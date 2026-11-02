@@ -7,6 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "import:letterboxd": "node scripts/import-letterboxd.mjs",
+    "import:goodreads": "node scripts/import-goodreads.mjs",
     "astro": "astro"
   },
   "dependencies": {

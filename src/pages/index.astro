@@ -7,10 +7,10 @@ import LogRow from '../components/LogRow.astro';
 import BookCard from '../components/BookCard.astro';
 import NoteItem from '../components/NoteItem.astro';
 import {
-  films,
+  filmCount,
   books,
   favorites,
-  filmsByDate,
+  datedFilms,
   readBooks,
   currentlyReading,
   ratingFor,
@@ -19,7 +19,7 @@ import {
   formatDate,
 } from '../lib/data';
 
-const recentFilms = filmsByDate();
+const recentFilms = datedFilms();
 const lastWatched = recentFilms[0];
 const reading = currentlyReading();
 const latest = latestEntryDate();
@@ -38,7 +38,7 @@ const notes = (await notesByDate()).slice(0, 3);
     </p>
     <ul class="label meta-row">
       <li>Medan, ID</li>
-      <li>{films.length} film tercatat</li>
+      <li>{filmCount()} film tercatat</li>
       <li>{books.length} buku tercatat</li>
       <li>Sinkron: Letterboxd · Goodreads</li>
     </ul>
@@ -88,7 +88,7 @@ const notes = (await notesByDate()).slice(0, 3);
 
   <!-- 03 / TONTONAN -->
   <section class="container section" aria-labelledby="tontonan">
-    <SectionHeader label="03 / Tontonan" href="/tontonan/" linkText={`Lihat semua ${films.length}`} />
+    <SectionHeader label="03 / Tontonan" href="/tontonan/" linkText={`Lihat semua ${filmCount()}`} />
     <h2 id="tontonan">Film yang membekas</h2>
     <p class="subtitle">
       Hampir semuanya tentang keadilan: siapa yang dilindungi hukum, dan siapa yang tidak.

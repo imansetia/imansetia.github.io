@@ -3,7 +3,7 @@ import Rating from './Rating.astro';
 import { formatDate } from '../lib/data';
 
 interface Props {
-  date: string;
+  date: string | null;
   title: string;
   year: number;
   rating?: number | null;
@@ -14,7 +14,13 @@ const { date, title, year, rating, href } = Astro.props;
 ---
 
 <li class="log-row">
-  <time class="date label" datetime={date}>{formatDate(date)}</time>
+  {
+    date ? (
+      <time class="date label" datetime={date}>{formatDate(date)}</time>
+    ) : (
+      <span class="date label">Tanpa tanggal</span>
+    )
+  }
   <a class="title" href={href}><em>{title}</em></a>
   <span class="year label">{year}</span>
   <span class="stars"><Rating value={rating} /></span>

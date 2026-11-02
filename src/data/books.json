@@ -1,46 +1,618 @@
 [
   {
-    "id": "sample-1",
-    "title": "[JUDUL BUKU CONTOH 1]",
-    "author": "[PENULIS]",
+    "id": "216950113",
+    "title": "Veronika Decides to Die",
+    "author": "Paulo Coelho",
+    "year": 1998,
     "rating": null,
-    "shelf": "currently-reading",
-    "goodreadsUrl": "https://www.goodreads.com/user/show/201369776"
+    "shelf": "read",
+    "isbn": "9780061124266",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/216950113"
   },
   {
-    "id": "sample-2",
-    "title": "[JUDUL BUKU CONTOH 2]",
-    "author": "[PENULIS]",
+    "id": "18144590",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "year": 1988,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780062315007",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/18144590"
+  },
+  {
+    "id": "223889699",
+    "title": "The Secret of Secrets",
+    "author": "Dan Brown",
+    "year": 2025,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780385546898",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/223889699"
+  },
+  {
+    "id": "17212231",
+    "title": "Inferno",
+    "author": "Dan Brown",
+    "year": 2013,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780385537858",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/17212231"
+  },
+  {
+    "id": "6411961",
+    "title": "The Lost Symbol",
+    "author": "Dan Brown",
+    "year": 2009,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780385504225",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/6411961"
+  },
+  {
+    "id": "55019161",
+    "title": "The Da Vinci Code",
+    "author": "Dan Brown",
+    "year": 2003,
+    "rating": null,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/55019161"
+  },
+  {
+    "id": "960",
+    "title": "Angels & Demons",
+    "author": "Dan Brown",
+    "year": 2000,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9781416524793",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/960"
+  },
+  {
+    "id": "56916837",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "year": 1960,
+    "rating": null,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/56916837"
+  },
+  {
+    "id": "25897850",
+    "title": "Tru & Nelle",
+    "author": "G. Neri",
+    "year": 2016,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780544699601",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/25897850"
+  },
+  {
+    "id": "17886352",
+    "title": "Mahogany Hills",
+    "author": "Tia Widiana",
+    "year": 2013,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9789792295849",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/17886352"
+  },
+  {
+    "id": "13582635",
+    "title": "Partikel",
+    "author": "Dee Lestari",
+    "year": 2012,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9786028811743",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/13582635"
+  },
+  {
+    "id": "1421046",
+    "title": "Supernova: Petir",
+    "author": "Dee Lestari",
+    "year": 2004,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9799822939",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1421046"
+  },
+  {
+    "id": "1300350",
+    "title": "Supernova: Akar",
+    "author": "Dee Lestari",
+    "year": 2002,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9789799625724",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1300350"
+  },
+  {
+    "id": "994156",
+    "title": "Supernova: Ksatria, Puteri, dan Bintang Jatuh",
+    "author": "Dee Lestari",
+    "year": 2001,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9789799625700",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/994156"
+  },
+  {
+    "id": "23012658",
+    "title": "Man Tiger",
+    "author": "Eka Kurniawan",
+    "year": 2004,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9781781688595",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/23012658"
+  },
+  {
+    "id": "21433310",
+    "title": "Seperti Dendam, Rindu Harus Dibayar Tuntas",
+    "author": "Eka Kurniawan",
+    "year": 2014,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9786020303932",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/21433310"
+  },
+  {
+    "id": "1667423",
+    "title": "Autumn in Paris",
+    "author": "Ilana Tan",
+    "year": 2007,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9792230300",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1667423"
+  },
+  {
+    "id": "41559841",
+    "title": "Represi",
+    "author": "Fakhrisina Amalia",
+    "year": 2018,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9786020611945",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/41559841"
+  },
+  {
+    "id": "102868",
+    "title": "A Study in Scarlet",
+    "author": "Arthur Conan Doyle",
+    "year": 1887,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9781420925531",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/102868"
+  },
+  {
+    "id": "16299",
+    "title": "And Then There Were None",
+    "author": "Agatha Christie",
+    "year": 1939,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780312330873",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/16299"
+  },
+  {
+    "id": "28446637",
+    "title": "Hujan",
+    "author": "Tere Liye",
+    "year": 2016,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9786020324784",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/28446637"
+  },
+  {
+    "id": "33848032",
+    "title": "Semua Ikan di Langit",
+    "author": "Ziggy Zezsyazeoviennazabrizkie",
+    "year": 2017,
+    "rating": null,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/33848032"
+  },
+  {
+    "id": "59345269",
+    "title": "Kita Pergi Hari Ini",
+    "author": "Ziggy Zezsyazeoviennazabrizkie",
+    "year": 2021,
+    "rating": null,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/59345269"
+  },
+  {
+    "id": "34311766",
+    "title": "Jakarta Sebelum Pagi",
+    "author": "Ziggy Zezsyazeoviennazabrizkie",
+    "year": 2016,
+    "rating": null,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/34311766"
+  },
+  {
+    "id": "27213435",
+    "title": "Di Tanah Lada",
+    "author": "Ziggy Zezsyazeoviennazabrizkie",
+    "year": 2015,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9786020318967",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/27213435"
+  },
+  {
+    "id": "33548853",
+    "title": "Petjah",
+    "author": "Oda Sekar Ayu",
+    "year": 2017,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9786020295954",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/33548853"
+  },
+  {
+    "id": "1439791",
+    "title": "Gajah Mada: Madakaripura Hamukti Moksa",
+    "author": "Langit Kresna Hariadi",
+    "year": 2007,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9789793307121",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1439791"
+  },
+  {
+    "id": "1439654",
+    "title": "Gajah Mada: Bergelut Dalam Kemelut Takhta dan Angkara",
+    "author": "Langit Kresna Hariadi",
+    "year": 2006,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9789793301907",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1439654"
+  },
+  {
+    "id": "1337353",
+    "title": "Gajah Mada",
+    "author": "Langit Kresna Hariadi",
+    "year": 2004,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9789796685585",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1337353"
+  },
+  {
+    "id": "1439781",
+    "title": "Gajah Mada: Perang Bubat",
+    "author": "Langit Kresna Hariadi",
+    "year": 2006,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9789793304496",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1439781"
+  },
+  {
+    "id": "1439771",
+    "title": "Gajah Mada: Hamukti Palapa",
+    "author": "Langit Kresna Hariadi",
+    "year": 2006,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9789793303161",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1439771"
+  },
+  {
+    "id": "25498974",
+    "title": "Ayah",
+    "author": "Andrea Hirata",
+    "year": 2015,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9786022911029",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/25498974"
+  },
+  {
+    "id": "8574333",
+    "title": "Please Look After Mom",
+    "author": "Kyung-Sook Shin",
+    "year": 2008,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780307593917",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/8574333"
+  },
+  {
+    "id": "18774964",
+    "title": "A Man Called Ove",
+    "author": "Fredrik Backman",
+    "year": 2012,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9781476738017",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/18774964"
+  },
+  {
+    "id": "58679358",
+    "title": "One of Us Is Lying",
+    "author": "Karen M. McManus",
+    "year": 2017,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780593565377",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/58679358"
+  },
+  {
+    "id": "170448",
+    "title": "Animal Farm",
+    "author": "George Orwell",
+    "year": 1945,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780451526342",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/170448"
+  },
+  {
+    "id": "10959",
+    "title": "Sophie’s World",
+    "author": "Jostein Gaarder",
+    "year": 1991,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9781857993288",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/10959"
+  },
+  {
+    "id": "42861019",
+    "title": "Filosofi Teras",
+    "author": "Henry Manampiring",
+    "year": 2018,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9786024125189",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/42861019"
+  },
+  {
+    "id": "89724",
+    "title": "We Have Always Lived in the Castle",
+    "author": "Shirley Jackson",
+    "year": 1962,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780143039976",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/89724"
+  },
+  {
+    "id": "33313",
+    "title": "Kitchen Confidential: Adventures in the Culinary Underbelly",
+    "author": "Anthony Bourdain",
+    "year": 2000,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780060899226",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/33313"
+  },
+  {
+    "id": "7876993",
+    "title": "Entrok",
+    "author": "Okky Madasari",
+    "year": 2010,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9789792255898",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/7876993"
+  },
+  {
+    "id": "35068705",
+    "title": "The Poppy War",
+    "author": "R.F. Kuang",
+    "year": 2018,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780062662590",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/35068705"
+  },
+  {
+    "id": "2236672",
+    "title": "Orang-Orang Bloomington",
+    "author": "Budi Darma",
+    "year": 1980,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9793019158",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/2236672"
+  },
+  {
+    "id": "49552",
+    "title": "The Stranger",
+    "author": "Albert Camus",
+    "year": 1942,
+    "rating": null,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/49552"
+  },
+  {
+    "id": "52699713",
+    "title": "Second Sister",
+    "author": "Chan Ho-Kei",
+    "year": 2017,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780802129475",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/52699713"
+  },
+  {
+    "id": "36393774",
+    "title": "Laut Bercerita",
+    "author": "Leila S. Chudori",
+    "year": 2017,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9786024246945",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/36393774"
+  },
+  {
+    "id": "43609577",
+    "title": "Demian",
+    "author": "Hermann Hesse",
+    "year": 1919,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9791159032486",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/43609577"
+  },
+  {
+    "id": "35031085",
+    "title": "Frankenstein",
+    "author": "Mary Wollstonecraft Shelley",
+    "year": 1818,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780143131847",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/35031085"
+  },
+  {
+    "id": "3532",
+    "title": "First Love",
+    "author": "Ivan Turgenev",
+    "year": 1860,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780974607894",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/3532"
+  },
+  {
+    "id": "61535",
+    "title": "The Selfish Gene",
+    "author": "Richard Dawkins",
+    "year": 1976,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780199291151",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/61535"
+  },
+  {
+    "id": "12361530",
+    "title": "The Judgement (Short Story)",
+    "author": "Franz Kafka",
+    "year": 1913,
+    "rating": null,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/12361530"
+  },
+  {
+    "id": "17690",
+    "title": "The Trial",
+    "author": "Franz Kafka",
+    "year": 1925,
+    "rating": null,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/17690"
+  },
+  {
+    "id": "485894",
+    "title": "The Metamorphosis",
+    "author": "Franz Kafka",
+    "year": 1915,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780553213690",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/485894"
+  },
+  {
+    "id": "12857",
+    "title": "The Gambler",
+    "author": "Fyodor Dostoevsky",
+    "year": 1866,
+    "rating": null,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/12857"
+  },
+  {
+    "id": "49455",
+    "title": "Notes from Underground",
+    "author": "Fyodor Dostoevsky",
+    "year": 1864,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780679734529",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/49455"
+  },
+  {
+    "id": "4934",
+    "title": "The Brothers Karamazov",
+    "author": "Fyodor Dostoevsky",
+    "year": 1879,
+    "rating": null,
+    "shelf": "read",
+    "isbn": "9780374528379",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/4934"
+  },
+  {
+    "id": "7144",
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "year": 1866,
+    "rating": null,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/7144"
+  },
+  {
+    "id": "22557272",
+    "title": "The Girl on the Train",
+    "author": "Paula Hawkins",
+    "year": 2015,
+    "rating": 3,
+    "shelf": "read",
+    "isbn": "9781594633669",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/22557272"
+  },
+  {
+    "id": "62627512",
+    "title": "It Ends with Us",
+    "author": "Colleen Hoover",
+    "year": 2016,
     "rating": 4,
     "shelf": "read",
-    "dateRead": "2026-10-12",
-    "goodreadsUrl": "https://www.goodreads.com/user/show/201369776"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/62627512"
   },
   {
-    "id": "sample-3",
-    "title": "[JUDUL BUKU CONTOH 3]",
-    "author": "[PENULIS]",
-    "rating": 5,
+    "id": "25856606",
+    "title": "The Fault in Our Stars",
+    "author": "John Green",
+    "year": 2012,
+    "rating": 4,
     "shelf": "read",
-    "dateRead": "2026-09-03",
-    "goodreadsUrl": "https://www.goodreads.com/user/show/201369776"
+    "isbn": "9780525478812",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/25856606"
   },
   {
-    "id": "sample-4",
-    "title": "[JUDUL BUKU CONTOH 4]",
-    "author": "[PENULIS]",
-    "rating": 3.5,
+    "id": "42844155",
+    "title": "Harry Potter and the Philosopher's Stone",
+    "author": "J.K. Rowling",
+    "year": 1997,
+    "rating": 3,
     "shelf": "read",
-    "dateRead": "2026-07-20",
-    "goodreadsUrl": "https://www.goodreads.com/user/show/201369776"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/42844155"
   },
   {
-    "id": "sample-5",
-    "title": "[JUDUL BUKU CONTOH 5]",
-    "author": "[PENULIS]",
-    "rating": null,
+    "id": "41733839",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "year": 1925,
+    "rating": 4,
     "shelf": "read",
-    "dateRead": "2026-06-01",
-    "goodreadsUrl": "https://www.goodreads.com/user/show/201369776"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/41733839"
+  },
+  {
+    "id": "129915654",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "year": 1813,
+    "rating": 4,
+    "shelf": "read",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/129915654"
   }
 ]

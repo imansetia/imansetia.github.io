@@ -8,6 +8,12 @@ node_modules/
 # log
 npm-debug.log*
 
+# file export pribadi dari Letterboxd/Goodreads (bahan impor, jangan di-commit)
+imports/
+letterboxd-*/
+letterboxd-*.zip
+goodreads_library_export*.csv
+
 # lingkungan
 .env
 .env.*
