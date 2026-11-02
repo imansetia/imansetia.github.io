@@ -1,0 +1,73 @@
+---
+import { formatDate, isoDate } from '../lib/data';
+
+interface Props {
+  title: string;
+  date: Date;
+  lang: 'id' | 'en';
+  summary: string;
+  href: string;
+  draft?: boolean;
+}
+
+const { title, date, lang, summary, href, draft } = Astro.props;
+---
+
+<li class="note-item">
+  <p class="label meta">
+    <time datetime={isoDate(date)}>{formatDate(date)}</time>
+    <span>{lang.toUpperCase()}</span>
+    {draft && <span>Draft</span>}
+  </p>
+  <div lang={lang}>
+    <h3 class="title"><a href={href}>{title}</a></h3>
+    <p class="summary">{summary}</p>
+  </div>
+</li>
+
+<style>
+  .note-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 8px 24px;
+    padding-block: 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    padding-top: 8px;
+  }
+
+  .title {
+    font-size: var(--fs-card);
+    line-height: 1.15;
+  }
+
+  .title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .title a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+
+  .summary {
+    margin-top: 8px;
+    color: var(--ink-2);
+  }
+
+  @media (max-width: 640px) {
+    .note-item {
+      grid-template-columns: 1fr;
+    }
+
+    .meta {
+      padding-top: 0;
+    }
+  }
+</style>

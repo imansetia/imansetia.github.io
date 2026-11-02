@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Capernaum",
+    "year": 2018,
+    "director": "Nadine Labaki",
+    "letterboxdUrl": "https://letterboxd.com/film/capernaum/"
+  },
+  {
+    "title": "Incendies",
+    "year": 2010,
+    "director": "Denis Villeneuve",
+    "letterboxdUrl": "https://letterboxd.com/film/incendies/"
+  },
+  {
+    "title": "Parasite",
+    "year": 2019,
+    "director": "Bong Joon Ho",
+    "letterboxdUrl": "https://letterboxd.com/film/parasite-2019/"
+  },
+  {
+    "title": "The Hunt",
+    "year": 2012,
+    "director": "Thomas Vinterberg",
+    "letterboxdUrl": "https://letterboxd.com/film/the-hunt-2012/"
+  },
+  {
+    "title": "Hope",
+    "year": 2013,
+    "director": "Lee Joon-ik",
+    "letterboxdUrl": "https://letterboxd.com/film/hope-2013/"
+  }
+]

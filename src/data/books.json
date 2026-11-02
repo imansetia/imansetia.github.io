@@ -1,0 +1,46 @@
+[
+  {
+    "id": "sample-1",
+    "title": "[JUDUL BUKU CONTOH 1]",
+    "author": "[PENULIS]",
+    "rating": null,
+    "shelf": "currently-reading",
+    "goodreadsUrl": "https://www.goodreads.com/user/show/201369776"
+  },
+  {
+    "id": "sample-2",
+    "title": "[JUDUL BUKU CONTOH 2]",
+    "author": "[PENULIS]",
+    "rating": 4,
+    "shelf": "read",
+    "dateRead": "2026-10-12",
+    "goodreadsUrl": "https://www.goodreads.com/user/show/201369776"
+  },
+  {
+    "id": "sample-3",
+    "title": "[JUDUL BUKU CONTOH 3]",
+    "author": "[PENULIS]",
+    "rating": 5,
+    "shelf": "read",
+    "dateRead": "2026-09-03",
+    "goodreadsUrl": "https://www.goodreads.com/user/show/201369776"
+  },
+  {
+    "id": "sample-4",
+    "title": "[JUDUL BUKU CONTOH 4]",
+    "author": "[PENULIS]",
+    "rating": 3.5,
+    "shelf": "read",
+    "dateRead": "2026-07-20",
+    "goodreadsUrl": "https://www.goodreads.com/user/show/201369776"
+  },
+  {
+    "id": "sample-5",
+    "title": "[JUDUL BUKU CONTOH 5]",
+    "author": "[PENULIS]",
+    "rating": null,
+    "shelf": "read",
+    "dateRead": "2026-06-01",
+    "goodreadsUrl": "https://www.goodreads.com/user/show/201369776"
+  }
+]

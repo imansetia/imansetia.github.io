@@ -1,0 +1,45 @@
+---
+// Baris kepala seksi: label "0N / NAMA" di kiri, link atau keterangan di kanan.
+interface Props {
+  label: string;
+  id?: string;
+  href?: string;
+  linkText?: string;
+  meta?: string;
+}
+
+const { label, id, href, linkText, meta } = Astro.props;
+---
+
+<div class="section-header">
+  <p class="label" id={id}>{label}</p>
+  {
+    href && linkText ? (
+      <a class="label link" href={href}>
+        {linkText} <span aria-hidden="true">→</span>
+      </a>
+    ) : (
+      meta && <p class="label">{meta}</p>
+    )
+  }
+</div>
+
+<style>
+  .section-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px 24px;
+  }
+
+  .link {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+</style>

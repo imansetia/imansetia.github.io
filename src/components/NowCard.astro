@@ -1,0 +1,89 @@
+---
+// Kartu "Sekarang": film terakhir ditonton atau buku yang sedang dibaca.
+import Poster from './Poster.astro';
+import Rating from './Rating.astro';
+
+interface Props {
+  label: string;
+  title: string;
+  byline: string;
+  href: string;
+  image?: string;
+  year?: number;
+  review?: string;
+  rating?: number | null;
+  variant?: 'film' | 'book';
+}
+
+const { label, title, byline, href, image, year, review, rating, variant = 'film' } = Astro.props;
+---
+
+<article class="now-card">
+  <div class="thumb">
+    <Poster
+      src={image}
+      title={title}
+      year={variant === 'film' ? year : undefined}
+      variant={variant === 'film' ? 'block' : 'dashed'}
+      width={96}
+      showText={false}
+    />
+  </div>
+  <div class="body">
+    <p class="label">{label}</p>
+    <h3 class="title"><a href={href}><em>{title}</em></a></h3>
+    <p class="byline">{byline}</p>
+    {review && <blockquote class="review">{review}</blockquote>}
+    {rating !== undefined && <Rating value={rating} />}
+  </div>
+</article>
+
+<style>
+  .now-card {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: var(--surface);
+    border-radius: var(--radius-card);
+  }
+
+  .thumb {
+    flex: 0 0 96px;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .title {
+    margin-top: 4px;
+    font-size: var(--fs-card);
+    line-height: 1.15;
+  }
+
+  .title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .title a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+
+  .byline {
+    font-size: 17px;
+    color: var(--ink-2);
+  }
+
+  .review {
+    margin: 4px 0 0;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+</style>

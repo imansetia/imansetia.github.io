@@ -1,0 +1,78 @@
+---
+// Gambar poster/sampul rasio 2:3. Bila tidak ada gambar: blok warna --poster-n
+// (varian "block") atau kotak garis putus-putus (varian "dashed").
+interface Props {
+  src?: string;
+  title: string;
+  year?: number;
+  index?: number;
+  variant?: 'block' | 'dashed';
+  width?: number;
+  showText?: boolean;
+}
+
+const { src, title, year, index = 0, variant = 'block', width = 200, showText = true } = Astro.props;
+const alt = year ? `Poster ${title} (${year})` : `Sampul ${title}`;
+const color = `var(--poster-${(index % 5) + 1})`;
+const number = String(index + 1).padStart(2, '0');
+---
+
+{
+  src ? (
+    <img
+      class="poster"
+      src={src}
+      alt={alt}
+      width={width}
+      height={Math.round(width * 1.5)}
+      loading="lazy"
+      decoding="async"
+    />
+  ) : variant === 'block' ? (
+    <div class="poster fallback" style={`background:${color}`} role="img" aria-label={alt}>
+      {showText && (
+        <>
+          <span class="num" aria-hidden="true">{number}</span>
+          <span class="title" aria-hidden="true">{title}</span>
+        </>
+      )}
+    </div>
+  ) : (
+    <div class="poster dashed" role="img" aria-label={alt} />
+  )
+}
+
+<style>
+  .poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: var(--radius-poster);
+    object-fit: cover;
+  }
+
+  .fallback {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+    color: var(--poster-ink);
+    overflow: hidden;
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: var(--tracking-label);
+  }
+
+  .title {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  .dashed {
+    border: 1px dashed var(--dash);
+  }
+</style>

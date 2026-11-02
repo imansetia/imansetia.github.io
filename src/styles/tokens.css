@@ -23,6 +23,7 @@
   --poster-3: #3b4ba8;
   --poster-4: #56635d;
   --poster-5: #1e2a26;
+  --poster-ink: #e9ece6; /* teks di atas blok poster; sama dengan --bg terang, tidak ikut tema */
 
   /* Font */
   --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;

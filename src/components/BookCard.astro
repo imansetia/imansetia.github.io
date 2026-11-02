@@ -1,0 +1,54 @@
+---
+import Poster from './Poster.astro';
+
+interface Props {
+  title: string;
+  author: string;
+  href: string;
+  cover?: string;
+}
+
+const { title, author, href, cover } = Astro.props;
+---
+
+<article class="book-card">
+  <a href={href} class="cover-link">
+    <Poster src={cover} title={title} variant="dashed" />
+  </a>
+  <h3 class="title"><a href={href}><em>{title}</em></a></h3>
+  <p class="author">{author}</p>
+</article>
+
+<style>
+  .book-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .cover-link {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .title a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+
+  .author {
+    font-size: 16px;
+    color: var(--ink-2);
+  }
+</style>

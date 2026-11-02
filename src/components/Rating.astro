@@ -1,0 +1,39 @@
+---
+// Rating 0.5–5 sebagai bintang. Tanpa rating: "—".
+interface Props {
+  value?: number | null;
+}
+
+const { value } = Astro.props;
+const hasRating = typeof value === 'number' && value > 0;
+const stars = hasRating ? '★'.repeat(Math.floor(value)) + (value % 1 ? '½' : '') : '';
+const spoken = hasRating ? `${String(value).replace('.', ',')} dari 5` : 'tanpa rating';
+---
+
+{
+  hasRating ? (
+    <span class="rating">
+      <span aria-hidden="true">{stars}</span>
+      <span class="sr-only">{spoken}</span>
+    </span>
+  ) : (
+    <span class="rating none">
+      <span aria-hidden="true">—</span>
+      <span class="sr-only">{spoken}</span>
+    </span>
+  )
+}
+
+<style>
+  .rating {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .none {
+    color: var(--muted);
+  }
+</style>

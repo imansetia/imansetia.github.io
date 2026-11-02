@@ -1,0 +1,45 @@
+---
+import Poster from './Poster.astro';
+import Rating from './Rating.astro';
+
+interface Props {
+  title: string;
+  year: number;
+  director?: string;
+  rating?: number | null;
+  href: string;
+  poster?: string;
+  index: number;
+}
+
+const { title, year, director, rating, href, poster, index } = Astro.props;
+---
+
+<article class="poster-card">
+  <a href={href} class="cover-link">
+    <Poster src={poster} title={title} year={year} index={index} />
+    <h3 class="sr-only">{title}</h3>
+  </a>
+  <p class="meta">{director ? `${director}, ${year}` : year}</p>
+  <Rating value={rating} />
+</article>
+
+<style>
+  .poster-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .cover-link {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .meta {
+    font-size: 16px;
+    line-height: 1.35;
+    color: var(--ink-2);
+  }
+</style>

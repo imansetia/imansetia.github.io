@@ -1,0 +1,74 @@
+---
+import Rating from './Rating.astro';
+import { formatDate } from '../lib/data';
+
+interface Props {
+  date: string;
+  title: string;
+  year: number;
+  rating?: number | null;
+  href: string;
+}
+
+const { date, title, year, rating, href } = Astro.props;
+---
+
+<li class="log-row">
+  <time class="date label" datetime={date}>{formatDate(date)}</time>
+  <a class="title" href={href}><em>{title}</em></a>
+  <span class="year label">{year}</span>
+  <span class="stars"><Rating value={rating} /></span>
+</li>
+
+<style>
+  .log-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 64px 90px;
+    align-items: baseline;
+    gap: 4px 16px;
+    padding-block: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .title:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+
+  .stars {
+    text-align: right;
+  }
+
+  /* HP: tanggal + rating di atas, judul (dan tahun) di bawah */
+  @media (max-width: 640px) {
+    .log-row {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        'date stars'
+        'title year';
+    }
+
+    .date {
+      grid-area: date;
+    }
+
+    .stars {
+      grid-area: stars;
+    }
+
+    .title {
+      grid-area: title;
+    }
+
+    .year {
+      grid-area: year;
+    }
+  }
+</style>
