@@ -1,0 +1,87 @@
+/*
+ * Design tokens — sumber: DESIGN.md bagian 4.
+ * Jangan menambah warna baru tanpa mengecek kontras (WCAG AA ≥ 4.5:1).
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Warna — terang (default) */
+  --bg: #e9ece6;
+  --surface: #dde2da;
+  --ink: #1e2a26;
+  --ink-2: #3a4742;
+  --muted: #56635d;
+  --rule: #bcc5bc;
+  --dash: #8f9b92;
+  --accent: #3b4ba8;
+  --accent-hover: #26337a;
+
+  /* Blok poster cadangan bila gambar tidak ada */
+  --poster-1: #4b5a8f;
+  --poster-2: #2f3b33;
+  --poster-3: #3b4ba8;
+  --poster-4: #56635d;
+  --poster-5: #1e2a26;
+
+  /* Font */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Ukuran huruf — desktop */
+  --fs-h1: 76px;
+  --fs-h2: 40px;
+  --fs-card: 29px;
+  --fs-lead: 23px;
+  --fs-body: 20px;
+  --fs-label: 12px;
+  --fs-nav: 13px;
+  --tracking-label: 0.1em;
+
+  /* Layout */
+  --container: 1120px;
+  --gutter: 24px;
+  --radius-card: 4px;
+  --radius-poster: 2px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --fs-h1: 44px;
+    --fs-h2: 30px;
+    --fs-card: 24px;
+    --fs-lead: 19px;
+    --fs-body: 18px;
+    --gutter: 16px;
+  }
+}
+
+/* Warna — gelap. Ikut sistem, kecuali pengunjung memilih terang secara manual. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #121816;
+    --surface: #1a2220;
+    --ink: #e3e8e2;
+    --ink-2: #bac4bd;
+    --muted: #8e9a93;
+    --rule: #2c3632;
+    --dash: #4a5651;
+    --accent: #9aa8f0;
+    --accent-hover: #c3ccf7;
+  }
+}
+
+/* Warna — gelap, dipilih manual lewat tombol tema. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #121816;
+  --surface: #1a2220;
+  --ink: #e3e8e2;
+  --ink-2: #bac4bd;
+  --muted: #8e9a93;
+  --rule: #2c3632;
+  --dash: #4a5651;
+  --accent: #9aa8f0;
+  --accent-hover: #c3ccf7;
+}

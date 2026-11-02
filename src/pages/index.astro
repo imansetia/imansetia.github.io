@@ -1,0 +1,36 @@
+---
+// Beranda sementara untuk Tahap 1. Seksi lengkap dibuat di Tahap 2.
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <section class="container section intro" aria-labelledby="judul">
+    <p class="label">01 / Beranda</p>
+    <h1 id="judul">Halo, saya <em>Iman</em>.</h1>
+    <p class="lead">
+      Mahasiswa hukum di Universitas Sumatera Utara, Medan. Di sini saya mencatat film yang membekas,
+      buku yang saya selesaikan, dan pikiran yang belum sempat rapi.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro {
+    border-top: 0;
+    padding-top: 56px;
+  }
+
+  h1 {
+    margin-top: 24px;
+    font-size: var(--fs-h1);
+    line-height: 1.04;
+  }
+
+  .lead {
+    margin-top: 24px;
+    max-width: 36em;
+    font-size: var(--fs-lead);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+</style>

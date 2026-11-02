@@ -1,0 +1,61 @@
+---
+const year = new Date().getFullYear();
+
+const links = [
+  { href: 'mailto:imansetiahalawa@gmail.com', label: 'Email' },
+  { href: 'https://github.com/imansetia', label: 'GitHub' },
+  { href: 'https://letterboxd.com/solsticebay/', label: 'Letterboxd' },
+  { href: 'https://www.goodreads.com/user/show/201369776', label: 'Goodreads' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container inner">
+    <p class="label">© {year} Iman Setia Halawa</p>
+    <ul>
+      {
+        links.map((link) => (
+          <li>
+            <a class="label" href={link.href} rel="me">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--ink);
+    margin-top: 48px;
+  }
+
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 32px;
+    padding-block: 24px 40px;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    padding: 0;
+    list-style: none;
+  }
+
+  a.label {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  a.label:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+</style>

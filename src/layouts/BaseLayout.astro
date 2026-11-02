@@ -1,0 +1,56 @@
+---
+// Kerangka semua halaman: <head>, Header, isi halaman, Footer.
+import '@fontsource/newsreader/400.css';
+import '@fontsource/newsreader/400-italic.css';
+import '@fontsource/newsreader/500.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: 'id' | 'en';
+}
+
+const {
+  title,
+  description = 'Situs pribadi Iman Setia Halawa: film yang ditonton, buku yang dibaca, dan catatan.',
+  lang = 'id',
+} = Astro.props;
+
+const fullTitle = title ? `${title} — Iman Setia` : 'Iman Setia';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+    <!-- Pasang tema tersimpan sebelum halaman tampil, supaya tidak berkedip. -->
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.dataset.theme = saved;
+        }
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

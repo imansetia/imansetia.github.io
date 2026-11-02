@@ -1,0 +1,17 @@
+# hasil build
+dist/
+.astro/
+
+# dependensi
+node_modules/
+
+# log
+npm-debug.log*
+
+# lingkungan
+.env
+.env.*
+
+# sistem operasi
+.DS_Store
+Thumbs.db
