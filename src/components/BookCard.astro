@@ -25,6 +25,8 @@ const { title, author, href, cover } = Astro.props;
     flex-direction: column;
     gap: 4px;
     min-width: 0;
+    /* Nama/judul yang sangat panjang boleh dipenggal di layar sempit. */
+    overflow-wrap: anywhere;
   }
 
   .cover-link {

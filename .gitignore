@@ -21,3 +21,9 @@ goodreads_library_export*.csv
 # sistem operasi
 .DS_Store
 Thumbs.db
+
+# Dibuat ulang oleh scripts/make-images.mjs setiap dev/build
+public/favicon.svg
+public/favicon.ico
+public/apple-touch-icon.png
+public/og-*.jpg

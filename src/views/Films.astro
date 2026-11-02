@@ -40,7 +40,7 @@ for (const film of all) {
 
     <div id="grid" class="grid-view">
       {
-        [...groups].map(([year, films]) => (
+        [...groups].map(([year, films], g) => (
           <section class="section group" aria-labelledby={`tahun-${year}`}>
             <h2 class="label" id={`tahun-${year}`}>
               {t('filmsPage.group', {
@@ -58,6 +58,7 @@ for (const film of all) {
                   href={film.letterboxdUrl}
                   poster={film.poster}
                   index={i}
+                  priority={g === 0 && i < 2}
                 />
               ))}
             </div>

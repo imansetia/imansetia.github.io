@@ -54,6 +54,7 @@ const notes = (await notesByDate()).slice(0, 3);
         <SectionHeader
           id="sekarang"
           label={t('now.label')}
+          heading
           meta={latest ? t('now.latest', { date: formatDate(latest) }) : undefined}
         />
         <div class="now-grid">

@@ -6,13 +6,16 @@ interface Props {
   href?: string;
   linkText?: string;
   meta?: string;
+  // Jadikan label sebuah <h2> bila seksi tidak punya judul lain (urutan heading tetap rapi).
+  heading?: boolean;
 }
 
-const { label, id, href, linkText, meta } = Astro.props;
+const { label, id, href, linkText, meta, heading = false } = Astro.props;
+const Label = heading ? 'h2' : 'p';
 ---
 
 <div class="section-header">
-  <p class="label" id={id}>{label}</p>
+  <Label class="label" id={id}>{label}</Label>
   {
     href && linkText ? (
       <a class="label link" href={href}>

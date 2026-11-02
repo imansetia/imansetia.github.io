@@ -9,6 +9,7 @@ export const ui = {
       'Situs pribadi Iman Setia Halawa: film yang ditonton, buku yang dibaca, dan catatan.',
     'footer.tmdb':
       'Poster dan data film dari {tmdb}. Situs ini memakai API TMDB, tetapi tidak didukung atau disertifikasi oleh TMDB.',
+    'og.alt': 'Kartu imansetia.page: "Halo, saya Iman." dan poster lima film favorit.',
 
     'nav.label': 'Navigasi utama',
     'nav.films': 'Tontonan',
@@ -101,6 +102,7 @@ export const ui = {
       'Personal site of Iman Setia Halawa: films watched, books read, and notes.',
     'footer.tmdb':
       'Film posters and data from {tmdb}. This product uses the TMDB API but is not endorsed or certified by TMDB.',
+    'og.alt': `imansetia.page card: "Hi, I'm Iman." and posters of five favourite films.`,
 
     'nav.label': 'Main navigation',
     'nav.films': 'Films',

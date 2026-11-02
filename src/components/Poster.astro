@@ -11,9 +11,20 @@ interface Props {
   variant?: 'block' | 'dashed';
   width?: number;
   showText?: boolean;
+  // Gambar yang langsung terlihat saat halaman dibuka: muat segera, jangan ditunda.
+  priority?: boolean;
 }
 
-const { src, title, year, index = 0, variant = 'block', width = 200, showText = true } = Astro.props;
+const {
+  src,
+  title,
+  year,
+  index = 0,
+  variant = 'block',
+  width = 200,
+  showText = true,
+  priority = false,
+} = Astro.props;
 const t = useTranslations(langOf(Astro.currentLocale));
 const alt = year ? t('poster.alt', { title, year }) : t('cover.alt', { title });
 const color = `var(--poster-${(index % 5) + 1})`;
@@ -28,7 +39,8 @@ const number = String(index + 1).padStart(2, '0');
       alt={alt}
       width={width}
       height={Math.round(width * 1.5)}
-      loading="lazy"
+      loading={priority ? 'eager' : 'lazy'}
+      fetchpriority={priority ? 'high' : undefined}
       decoding="async"
     />
   ) : variant === 'block' ? (

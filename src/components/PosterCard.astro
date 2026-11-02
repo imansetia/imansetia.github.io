@@ -10,14 +10,15 @@ interface Props {
   href: string;
   poster?: string;
   index: number;
+  priority?: boolean;
 }
 
-const { title, year, director, rating, href, poster, index } = Astro.props;
+const { title, year, director, rating, href, poster, index, priority } = Astro.props;
 ---
 
 <article class="poster-card">
   <a href={href} class="cover-link">
-    <Poster src={poster} title={title} year={year} index={index} />
+    <Poster src={poster} title={title} year={year} index={index} priority={priority} />
     <h3 class="sr-only">{title}</h3>
   </a>
   <p class="meta">{director ? `${director}, ${year}` : year}</p>

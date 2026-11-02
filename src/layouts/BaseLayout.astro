@@ -27,6 +27,8 @@ const fullTitle = title ? `${title} — Iman Setia` : 'Iman Setia';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const alternateUrl = new URL(alternate, Astro.site);
 const idUrl = lang === 'id' ? canonical : alternateUrl;
+// Gambar pratinjau dibuat oleh scripts/make-images.mjs, satu per bahasa.
+const ogImage = new URL(`/og-${lang}.jpg`, Astro.site);
 ---
 
 <!doctype html>
@@ -40,6 +42,23 @@ const idUrl = lang === 'id' ? canonical : alternateUrl;
     <link rel="alternate" hreflang={lang} href={canonical} />
     <link rel="alternate" hreflang={otherLang(lang)} href={alternateUrl} />
     <link rel="alternate" hreflang="x-default" href={idUrl} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- Pratinjau saat link dibagikan (Open Graph). -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Iman Setia" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'id' ? 'id_ID' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'id' ? 'en_US' : 'id_ID'} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t('og.alt')} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="generator" content={Astro.generator} />
     <!-- Pasang tema tersimpan sebelum halaman tampil, supaya tidak berkedip. -->
     <script is:inline>
