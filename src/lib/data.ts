@@ -75,6 +75,11 @@ export function ratingFor(title: string, year: number): number | null {
   return entry?.rating ?? null;
 }
 
+/** Poster film favorit: dari favorites.json, atau dari log bila filmnya punya poster. */
+export function posterFor(film: Favorite): string | undefined {
+  return film.poster ?? films.find((f) => f.title === film.title && f.year === film.year && f.poster)?.poster;
+}
+
 /** Tanggal entri paling baru di antara film dan buku. */
 export function latestEntryDate(): string | undefined {
   const dates = [...films.map((f) => f.watchedDate ?? ''), ...books.map((b) => b.dateRead ?? '')];

@@ -8,7 +8,9 @@
     "rewatch": true,
     "review": "1+1=1",
     "letterboxdUrl": "https://boxd.it/Msm",
-    "tmdbId": null
+    "tmdbId": 46738,
+    "poster": "/posters/incendies.jpg",
+    "director": "Denis Villeneuve"
   },
   {
     "id": "clwcKJ",
@@ -18,7 +20,9 @@
     "watchedDate": "2024-12-03",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/gmFw",
-    "tmdbId": null
+    "tmdbId": 458156,
+    "poster": "/posters/john-wick-chapter-3-parabellum.jpg",
+    "director": "Chad Stahelski"
   },
   {
     "id": "clwedn",
@@ -28,7 +32,9 @@
     "watchedDate": "2024-12-03",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/mh48",
-    "tmdbId": null
+    "tmdbId": 603692,
+    "poster": "/posters/john-wick-chapter-4.jpg",
+    "director": "Chad Stahelski"
   },
   {
     "id": "clwHud",
@@ -38,7 +44,9 @@
     "watchedDate": "2024-11-01",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/6YK",
-    "tmdbId": null
+    "tmdbId": 38,
+    "poster": "/posters/eternal-sunshine-of-the-spotless-mind.jpg",
+    "director": "Michel Gondry"
   },
   {
     "id": "clwJNL",
@@ -48,7 +56,9 @@
     "watchedDate": "2024-11-01",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/wJzS",
-    "tmdbId": null
+    "tmdbId": 866398,
+    "poster": "/posters/the-beekeeper-2024.jpg",
+    "director": "David Ayer"
   },
   {
     "id": "cd3knX",
@@ -59,7 +69,9 @@
     "rewatch": true,
     "review": "\"Revenge is a meal best served cold.\" - Creasy",
     "letterboxdUrl": "https://boxd.it/1Yvk",
-    "tmdbId": null
+    "tmdbId": 9509,
+    "poster": "/posters/man-on-fire-2004.jpg",
+    "director": "Tony Scott"
   },
   {
     "id": "clwmS9",
@@ -69,7 +81,9 @@
     "watchedDate": "2024-04-21",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1IRY",
-    "tmdbId": null
+    "tmdbId": 17295,
+    "poster": "/posters/the-battle-of-algiers.jpg",
+    "director": "Gillo Pontecorvo"
   },
   {
     "id": "clwLoj",
@@ -79,7 +93,9 @@
     "watchedDate": "2022-04-01",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/bhF2",
-    "tmdbId": null
+    "tmdbId": 339403,
+    "poster": "/posters/baby-driver.jpg",
+    "director": "Edgar Wright"
   },
   {
     "id": "clwEOJ",
@@ -89,7 +105,9 @@
     "watchedDate": "2021-06-05",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/3TMY",
-    "tmdbId": null
+    "tmdbId": 117263,
+    "poster": "/posters/olympus-has-fallen.jpg",
+    "director": "Antoine Fuqua"
   },
   {
     "id": "clwvyn",
@@ -99,7 +117,9 @@
     "watchedDate": "2021-05-26",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/7x5Q",
-    "tmdbId": null
+    "tmdbId": 255709,
+    "poster": "/posters/hope-2013.jpg",
+    "director": "Lee Joon-ik"
   },
   {
     "id": "clwiW7",
@@ -109,7 +129,9 @@
     "watchedDate": "2021-05-24",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/hTha",
-    "tmdbId": null
+    "tmdbId": 496243,
+    "poster": "/posters/parasite-2019.jpg",
+    "director": "Bong Joon Ho"
   },
   {
     "id": "clwtdd",
@@ -119,7 +141,9 @@
     "watchedDate": "2021-05-22",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1RUM",
-    "tmdbId": null
+    "tmdbId": 12477,
+    "poster": "/posters/grave-of-the-fireflies.jpg",
+    "director": "Isao Takahata"
   },
   {
     "id": "clwwXD",
@@ -129,7 +153,9 @@
     "watchedDate": "2021-05-21",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/Dze",
-    "tmdbId": null
+    "tmdbId": 50475,
+    "poster": "/posters/no-mercy-2010.jpg",
+    "director": "Kim Hyoung-jun"
   },
   {
     "id": "clwg9H",
@@ -139,7 +165,9 @@
     "watchedDate": "2021-04-20",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/2b2A",
-    "tmdbId": null
+    "tmdbId": 141,
+    "poster": "/posters/donnie-darko.jpg",
+    "director": "Richard Kelly"
   },
   {
     "id": "clw7tj",
@@ -149,7 +177,9 @@
     "watchedDate": "2021-02-01",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/7dEc",
-    "tmdbId": null
+    "tmdbId": 245891,
+    "poster": "/posters/john-wick.jpg",
+    "director": "Chad Stahelski"
   },
   {
     "id": "clw8YR",
@@ -159,7 +189,9 @@
     "watchedDate": "2021-02-01",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/ayGu",
-    "tmdbId": null
+    "tmdbId": 324552,
+    "poster": "/posters/john-wick-chapter-2.jpg",
+    "director": "Chad Stahelski"
   },
   {
     "id": "clvYsr",
@@ -169,7 +201,9 @@
     "watchedDate": "2021-01-26",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/29ro",
-    "tmdbId": null
+    "tmdbId": 857,
+    "poster": "/posters/saving-private-ryan.jpg",
+    "director": "Steven Spielberg"
   },
   {
     "id": "clvWMz",
@@ -179,7 +213,9 @@
     "watchedDate": "2021-01-25",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/jj4y",
-    "tmdbId": null
+    "tmdbId": 530915,
+    "poster": "/posters/1917.jpg",
+    "director": "Sam Mendes"
   },
   {
     "id": "clvUlV",
@@ -189,7 +225,9 @@
     "watchedDate": "2021-01-21",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/2aHi",
-    "tmdbId": null
+    "tmdbId": 278,
+    "poster": "/posters/the-shawshank-redemption.jpg",
+    "director": "Frank Darabont"
   },
   {
     "id": "clvSkr",
@@ -199,7 +237,9 @@
     "watchedDate": "2021-01-20",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/3wEC",
-    "tmdbId": null
+    "tmdbId": 103663,
+    "poster": "/posters/the-hunt-2012.jpg",
+    "director": "Thomas Vinterberg"
   },
   {
     "id": "clvPMn",
@@ -209,7 +249,9 @@
     "watchedDate": "2021-01-17",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/237s",
-    "tmdbId": null
+    "tmdbId": 5336,
+    "poster": "/posters/salo-or-the-120-days-of-sodom.jpg",
+    "director": "Pier Paolo Pasolini"
   },
   {
     "id": "clvKkX",
@@ -219,7 +261,9 @@
     "watchedDate": "2020-07-01",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/37pC",
-    "tmdbId": null
+    "tmdbId": 87827,
+    "poster": "/posters/life-of-pi.jpg",
+    "director": "Ang Lee"
   },
   {
     "id": "clw3wt",
@@ -229,7 +273,9 @@
     "watchedDate": "2019-11-20",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/fWD0",
-    "tmdbId": null
+    "tmdbId": 447665,
+    "poster": "/posters/kickboxer-retaliation.jpg",
+    "director": "Dimitri Logothetis"
   },
   {
     "id": "clw22H",
@@ -239,7 +285,9 @@
     "watchedDate": "2019-11-20",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/9T1U",
-    "tmdbId": null
+    "tmdbId": 308529,
+    "poster": "/posters/kickboxer-vengeance.jpg",
+    "director": "John Stockwell"
   },
   {
     "id": "clwCE3",
@@ -249,7 +297,9 @@
     "watchedDate": "2019-08-17",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/2p2E",
-    "tmdbId": null
+    "tmdbId": 72190,
+    "poster": "/posters/world-war-z.jpg",
+    "director": "Marc Forster"
   },
   {
     "id": "clwr5V",
@@ -259,7 +309,9 @@
     "watchedDate": "2019-05-02",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/dSQU",
-    "tmdbId": null
+    "tmdbId": 396535,
+    "poster": "/posters/train-to-busan.jpg",
+    "director": "Yeon Sang-ho"
   },
   {
     "id": "clvGPd",
@@ -269,7 +321,9 @@
     "watchedDate": "2019-03-04",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/iM3s",
-    "tmdbId": null
+    "tmdbId": 517814,
+    "poster": "/posters/capernaum.jpg",
+    "director": "Nadine Labaki"
   },
   {
     "id": "clwzA3",
@@ -279,7 +333,9 @@
     "watchedDate": "2018-11-26",
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1OE2",
-    "tmdbId": null
+    "tmdbId": 14161,
+    "poster": "/posters/2012.jpg",
+    "director": "Roland Emmerich"
   },
   {
     "id": "2bf0",
@@ -289,7 +345,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/2bf0",
-    "tmdbId": null
+    "tmdbId": 62,
+    "poster": "/posters/tmdb-62.jpg",
+    "director": "Stanley Kubrick"
   },
   {
     "id": "1JP0",
@@ -299,7 +357,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1JP0",
-    "tmdbId": null
+    "tmdbId": 16664,
+    "poster": "/posters/tmdb-16664.jpg",
+    "director": "Shunji Iwai"
   },
   {
     "id": "23wi",
@@ -309,7 +369,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/23wi",
-    "tmdbId": null
+    "tmdbId": 4982,
+    "poster": "/posters/tmdb-4982.jpg",
+    "director": "Ridley Scott"
   },
   {
     "id": "2bfu",
@@ -319,7 +381,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/2bfu",
-    "tmdbId": null
+    "tmdbId": 55,
+    "poster": "/posters/tmdb-55.jpg",
+    "director": "Alejandro G. Iñárritu"
   },
   {
     "id": "yuDE",
@@ -329,7 +393,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/yuDE",
-    "tmdbId": null
+    "tmdbId": 915935,
+    "poster": "/posters/tmdb-915935.jpg",
+    "director": "Justine Triet"
   },
   {
     "id": "25A2",
@@ -339,7 +405,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/25A2",
-    "tmdbId": null
+    "tmdbId": 3175,
+    "poster": "/posters/tmdb-3175.jpg",
+    "director": "Stanley Kubrick"
   },
   {
     "id": "2bcU",
@@ -349,7 +417,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/2bcU",
-    "tmdbId": null
+    "tmdbId": 76,
+    "poster": "/posters/tmdb-76.jpg",
+    "director": "Richard Linklater"
   },
   {
     "id": "27MY",
@@ -359,7 +429,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/27MY",
-    "tmdbId": null
+    "tmdbId": 1948,
+    "poster": "/posters/tmdb-1948.jpg",
+    "director": "Brian Taylor, Mark Neveldine"
   },
   {
     "id": "1MPs",
@@ -369,7 +441,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1MPs",
-    "tmdbId": null
+    "tmdbId": 15092,
+    "poster": "/posters/tmdb-15092.jpg",
+    "director": "Mark Neveldine, Brian Taylor"
   },
   {
     "id": "9uyE",
@@ -379,7 +453,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/9uyE",
-    "tmdbId": null
+    "tmdbId": 299054,
+    "poster": "/posters/tmdb-299054.jpg",
+    "director": "Scott Waugh"
   },
   {
     "id": "dnDA",
@@ -389,7 +465,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/dnDA",
-    "tmdbId": null
+    "tmdbId": 384018,
+    "poster": "/posters/tmdb-384018.jpg",
+    "director": "David Leitch"
   },
   {
     "id": "1NTU",
@@ -399,7 +477,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1NTU",
-    "tmdbId": null
+    "tmdbId": 14537,
+    "poster": "/posters/tmdb-14537.jpg",
+    "director": "Masaki Kobayashi"
   },
   {
     "id": "4O24",
@@ -409,7 +489,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/4O24",
-    "tmdbId": null
+    "tmdbId": 152601,
+    "poster": "/posters/tmdb-152601.jpg",
+    "director": "Spike Jonze"
   },
   {
     "id": "67Wi",
@@ -419,7 +501,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/67Wi",
-    "tmdbId": null
+    "tmdbId": 204082,
+    "poster": "/posters/tmdb-204082.jpg",
+    "director": "Gary Fleder"
   },
   {
     "id": "1JzG",
@@ -429,7 +513,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1JzG",
-    "tmdbId": null
+    "tmdbId": 16869,
+    "poster": "/posters/tmdb-16869.jpg",
+    "director": "Quentin Tarantino"
   },
   {
     "id": "4VZ8",
@@ -439,7 +525,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/4VZ8",
-    "tmdbId": null
+    "tmdbId": 157336,
+    "poster": "/posters/tmdb-157336.jpg",
+    "director": "Christopher Nolan"
   },
   {
     "id": "70w",
@@ -449,7 +537,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/70w",
-    "tmdbId": null
+    "tmdbId": 24,
+    "poster": "/posters/tmdb-24.jpg",
+    "director": "Quentin Tarantino"
   },
   {
     "id": "2wRE",
@@ -459,7 +549,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/2wRE",
-    "tmdbId": null
+    "tmdbId": 947,
+    "poster": "/posters/tmdb-947.jpg",
+    "director": "David Lean"
   },
   {
     "id": "3v1u",
@@ -469,7 +561,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/3v1u",
-    "tmdbId": null
+    "tmdbId": 102651,
+    "poster": "/posters/tmdb-102651.jpg",
+    "director": "Robert Stromberg"
   },
   {
     "id": "hJAw",
@@ -479,7 +573,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/hJAw",
-    "tmdbId": null
+    "tmdbId": 492188,
+    "poster": "/posters/tmdb-492188.jpg",
+    "director": "Noah Baumbach"
   },
   {
     "id": "8wj0",
@@ -489,7 +585,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/8wj0",
-    "tmdbId": null
+    "tmdbId": 278924,
+    "poster": "/posters/tmdb-278924.jpg",
+    "director": "Dennis Gansel"
   },
   {
     "id": "1TSo",
@@ -499,7 +597,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1TSo",
-    "tmdbId": null
+    "tmdbId": 11423,
+    "poster": "/posters/tmdb-11423.jpg",
+    "director": "Bong Joon Ho"
   },
   {
     "id": "lnRy",
@@ -509,7 +609,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/lnRy",
-    "tmdbId": null
+    "tmdbId": 581734,
+    "poster": "/posters/tmdb-581734.jpg",
+    "director": "Chloé Zhao"
   },
   {
     "id": "29Ts",
@@ -519,7 +621,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/29Ts",
-    "tmdbId": null
+    "tmdbId": 655,
+    "poster": "/posters/tmdb-655.jpg",
+    "director": "Wim Wenders"
   },
   {
     "id": "3Xr6",
@@ -529,7 +633,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/3Xr6",
-    "tmdbId": null
+    "tmdbId": 119283,
+    "poster": "/posters/tmdb-119283.jpg",
+    "director": "Taylor Hackford"
   },
   {
     "id": "ZQc",
@@ -539,7 +645,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/ZQc",
-    "tmdbId": null
+    "tmdbId": 41245,
+    "poster": "/posters/tmdb-41245.jpg",
+    "director": "Lee Chang-dong"
   },
   {
     "id": "1Tlu",
@@ -549,7 +657,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1Tlu",
-    "tmdbId": null
+    "tmdbId": 11645,
+    "poster": "/posters/tmdb-11645.jpg",
+    "director": "Akira Kurosawa"
   },
   {
     "id": "29zs",
@@ -559,7 +669,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/29zs",
-    "tmdbId": null
+    "tmdbId": 807,
+    "poster": "/posters/tmdb-807.jpg",
+    "director": "David Fincher"
   },
   {
     "id": "4TUK",
@@ -569,7 +681,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/4TUK",
-    "tmdbId": null
+    "tmdbId": 156022,
+    "poster": "/posters/tmdb-156022.jpg",
+    "director": "Antoine Fuqua"
   },
   {
     "id": "bAEW",
@@ -579,7 +693,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/bAEW",
-    "tmdbId": null
+    "tmdbId": 345887,
+    "poster": "/posters/tmdb-345887.jpg",
+    "director": "Antoine Fuqua"
   },
   {
     "id": "yU54",
@@ -589,7 +705,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/yU54",
-    "tmdbId": null
+    "tmdbId": 926393,
+    "poster": "/posters/tmdb-926393.jpg",
+    "director": "Antoine Fuqua"
   },
   {
     "id": "1rtA",
@@ -599,7 +717,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1rtA",
-    "tmdbId": null
+    "tmdbId": 27578,
+    "poster": "/posters/tmdb-27578.jpg",
+    "director": "Sylvester Stallone"
   },
   {
     "id": "2CPE",
@@ -609,7 +729,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/2CPE",
-    "tmdbId": null
+    "tmdbId": 76163,
+    "poster": "/posters/tmdb-76163.jpg",
+    "director": "Simon West"
   },
   {
     "id": "4rmK",
@@ -619,7 +741,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/4rmK",
-    "tmdbId": null
+    "tmdbId": 138103,
+    "poster": "/posters/tmdb-138103.jpg",
+    "director": "Patrick Hughes"
   },
   {
     "id": "bbCw",
@@ -629,7 +753,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/bbCw",
-    "tmdbId": null
+    "tmdbId": 337339,
+    "poster": "/posters/tmdb-337339.jpg",
+    "director": "F. Gary Gray"
   },
   {
     "id": "2aNK",
@@ -639,7 +765,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/2aNK",
-    "tmdbId": null
+    "tmdbId": 238,
+    "poster": "/posters/tmdb-238.jpg",
+    "director": "Francis Ford Coppola"
   },
   {
     "id": "2aNq",
@@ -649,7 +777,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/2aNq",
-    "tmdbId": null
+    "tmdbId": 240,
+    "poster": "/posters/tmdb-240.jpg",
+    "director": "Francis Ford Coppola"
   },
   {
     "id": "3ZqO",
@@ -659,7 +789,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/3ZqO",
-    "tmdbId": null
+    "tmdbId": 120467,
+    "poster": "/posters/tmdb-120467.jpg",
+    "director": "Wes Anderson"
   },
   {
     "id": "948A",
@@ -669,7 +801,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/948A",
-    "tmdbId": null
+    "tmdbId": 290098,
+    "poster": "/posters/tmdb-290098.jpg",
+    "director": "Park Chan-wook"
   },
   {
     "id": "1rtg",
@@ -679,7 +813,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1rtg",
-    "tmdbId": null
+    "tmdbId": 27582,
+    "poster": "/posters/tmdb-27582.jpg",
+    "director": "Simon West"
   },
   {
     "id": "lScm",
@@ -689,7 +825,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/lScm",
-    "tmdbId": null
+    "tmdbId": 593643,
+    "poster": "/posters/tmdb-593643.jpg",
+    "director": "Mark Mylod"
   },
   {
     "id": "293w",
@@ -699,7 +837,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/293w",
-    "tmdbId": null
+    "tmdbId": 1124,
+    "poster": "/posters/tmdb-1124.jpg",
+    "director": "Christopher Nolan"
   },
   {
     "id": "3hBy",
@@ -709,7 +849,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/3hBy",
-    "tmdbId": null
+    "tmdbId": 94329,
+    "poster": "/posters/tmdb-94329.jpg",
+    "director": "Gareth Evans"
   },
   {
     "id": "5uz0",
@@ -719,7 +861,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/5uz0",
-    "tmdbId": null
+    "tmdbId": 180299,
+    "poster": "/posters/tmdb-180299.jpg",
+    "director": "Gareth Evans"
   },
   {
     "id": "20Z2",
@@ -729,7 +873,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/20Z2",
-    "tmdbId": null
+    "tmdbId": 7345,
+    "poster": "/posters/tmdb-7345.jpg",
+    "director": "Paul Thomas Anderson"
   },
   {
     "id": "1YWq",
@@ -739,7 +885,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1YWq",
-    "tmdbId": null
+    "tmdbId": 9335,
+    "poster": "/posters/tmdb-9335.jpg",
+    "director": "Louis Leterrier"
   },
   {
     "id": "1QhE",
@@ -749,7 +897,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/1QhE",
-    "tmdbId": null
+    "tmdbId": 13387,
+    "poster": "/posters/tmdb-13387.jpg",
+    "director": "Olivier Megaton"
   },
   {
     "id": "7bQA",
@@ -759,7 +909,9 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/7bQA",
-    "tmdbId": null
+    "tmdbId": 244786,
+    "poster": "/posters/tmdb-244786.jpg",
+    "director": "Damien Chazelle"
   },
   {
     "id": "nEia",
@@ -769,6 +921,8 @@
     "watchedDate": null,
     "rewatch": false,
     "letterboxdUrl": "https://boxd.it/nEia",
-    "tmdbId": null
+    "tmdbId": 637649,
+    "poster": "/posters/tmdb-637649.jpg",
+    "director": "Guy Ritchie"
   }
 ]

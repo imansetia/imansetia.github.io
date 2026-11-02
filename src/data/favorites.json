@@ -3,30 +3,35 @@
     "title": "Incendies",
     "year": 2010,
     "director": "Denis Villeneuve",
-    "letterboxdUrl": "https://letterboxd.com/film/incendies/"
+    "letterboxdUrl": "https://letterboxd.com/film/incendies/",
+    "poster": "/posters/incendies.jpg"
   },
   {
     "title": "Hope",
     "year": 2013,
     "director": "Lee Joon-ik",
-    "letterboxdUrl": "https://letterboxd.com/film/hope-2013/"
+    "letterboxdUrl": "https://letterboxd.com/film/hope-2013/",
+    "poster": "/posters/hope-2013.jpg"
   },
   {
     "title": "Capernaum",
     "year": 2018,
     "director": "Nadine Labaki",
-    "letterboxdUrl": "https://letterboxd.com/film/capernaum/"
+    "letterboxdUrl": "https://letterboxd.com/film/capernaum/",
+    "poster": "/posters/capernaum.jpg"
   },
   {
     "title": "Atonement",
     "year": 2007,
     "director": "Joe Wright",
-    "letterboxdUrl": "https://letterboxd.com/film/atonement/"
+    "letterboxdUrl": "https://letterboxd.com/film/atonement/",
+    "poster": "/posters/tmdb-4347.jpg"
   },
   {
     "title": "The Hunt",
     "year": 2012,
     "director": "Thomas Vinterberg",
-    "letterboxdUrl": "https://letterboxd.com/film/the-hunt-2012/"
+    "letterboxdUrl": "https://letterboxd.com/film/the-hunt-2012/",
+    "poster": "/posters/the-hunt-2012.jpg"
   }
 ]

@@ -9,7 +9,11 @@
     "preview": "astro preview",
     "import:letterboxd": "node scripts/import-letterboxd.mjs",
     "import:goodreads": "node scripts/import-goodreads.mjs",
-    "astro": "astro"
+    "astro": "astro",
+    "sync:letterboxd": "node scripts/sync-letterboxd.mjs",
+    "sync:tmdb": "node --env-file-if-exists=.env scripts/sync-tmdb.mjs",
+    "sync:covers": "node scripts/sync-covers.mjs",
+    "sync": "npm run sync:letterboxd && npm run sync:tmdb && npm run sync:covers"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.3.0",

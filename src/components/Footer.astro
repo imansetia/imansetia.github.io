@@ -1,4 +1,8 @@
 ---
+import { langOf, useTranslations } from '../i18n/ui';
+
+const t = useTranslations(langOf(Astro.currentLocale));
+const [beforeTmdb, afterTmdb] = t('footer.tmdb').split('{tmdb}');
 const year = new Date().getFullYear();
 
 const links = [
@@ -23,6 +27,10 @@ const links = [
         ))
       }
     </ul>
+    <!-- Atribusi wajib dari syarat penggunaan API TMDB -->
+    <p class="credit">
+      {beforeTmdb}<a href="https://www.themoviedb.org/">TMDB</a>{afterTmdb}
+    </p>
   </div>
 </footer>
 
@@ -52,6 +60,18 @@ const links = [
   a.label {
     color: var(--accent);
     text-decoration: none;
+  }
+
+  .credit {
+    flex-basis: 100%;
+    max-width: 680px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .credit a {
+    color: inherit;
   }
 
   a.label:hover {

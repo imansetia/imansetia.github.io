@@ -6,7 +6,8 @@
 // Membaca diary.csv (satu baris per tontonan), reviews.csv (teks ulasan), dan
 // watched.csv (link ke halaman film). Film di watched.csv yang tidak punya entri
 // diary tetap diimpor dengan `watchedDate: null`, rating diambil dari ratings.csv.
-// Field tambahan yang sudah ada di films.json (poster, director, tmdbId) dipertahankan.
+// Field tambahan yang sudah ada di films.json (poster, director, tmdbId) dipertahankan,
+// dicocokkan lewat judul + tahun sehingga tetap terbawa walau ID entri berubah.
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readCsv } from './lib/csv.mjs';
@@ -33,13 +34,20 @@ const reviewTexts = new Map(
 );
 
 const existing = existsSync(OUTPUT) ? JSON.parse(readFileSync(OUTPUT, 'utf8')) : [];
-const previous = new Map(existing.map((film) => [film.id, film]));
+const previous = new Map();
+for (const film of existing) {
+  const fields = previous.get(key(film.title, film.year)) ?? {};
+  fields.director ??= film.director;
+  fields.tmdbId ??= film.tmdbId;
+  fields.poster ??= film.poster;
+  previous.set(key(film.title, film.year), fields);
+}
 
 const films = diary.map((row) => {
   const id = row['Letterboxd URI'].split('/').pop();
   const watchedDate = row['Watched Date'] || row.Date;
   const review = reviewTexts.get(key(row.Name, row.Year) + '|' + watchedDate);
-  const old = previous.get(id) ?? {};
+  const old = previous.get(key(row.Name, row.Year)) ?? {};
 
   return {
     id,
@@ -64,7 +72,7 @@ for (const row of watched) {
   if (inDiary.has(key(row.Name, row.Year))) continue;
   const id = row['Letterboxd URI'].split('/').pop();
   const rating = ratingValues.get(key(row.Name, row.Year));
-  const old = previous.get(id) ?? {};
+  const old = previous.get(key(row.Name, row.Year)) ?? {};
 
   films.push({
     id,
