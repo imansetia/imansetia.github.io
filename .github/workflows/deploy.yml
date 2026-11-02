@@ -1,0 +1,47 @@
+# Build situs Astro lalu terbitkan ke GitHub Pages (imansetia.page).
+#
+# - Push ke `main`: build + deploy.
+# - Push ke `redesign`: hanya build, untuk menguji tanpa mengubah situs yang tayang.
+# - Bisa juga dijalankan manual dari tab Actions (workflow_dispatch).
+#
+# Syarat: Settings → Pages → Source = "GitHub Actions".
+# Domain diambil dari public/CNAME (imansetia.page), yang ikut tersalin ke dist/.
+name: Deploy ke GitHub Pages
+
+on:
+  push:
+    branches: [main, redesign]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Jangan jalankan dua deploy sekaligus; deploy yang sedang berjalan dibiarkan selesai.
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ambil isi repo
+        uses: actions/checkout@v7
+      - name: Install, build, dan unggah hasil build
+        uses: withastro/action@v6
+        with:
+          node-version: 24
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Terbitkan ke GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
