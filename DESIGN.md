@@ -233,11 +233,15 @@ sumber luar sedang mati.
 ### Buku — Goodreads (user ID `201369776`)
 - **Impor awal:** export CSV (My Books → Import and export) → `scripts/import-goodreads.mjs`
   → `src/data/books.json`.
-- **Sinkron rutin:** RSS rak, mis. `https://www.goodreads.com/review/list_rss/201369776?shelf=read`
-  dan `?shelf=currently-reading`. **Belum diverifikasi** — cek dulu apakah bisa diakses; bila
-  tidak, cukup andalkan impor CSV ulang.
-- **Sampul:** Open Library by ISBN (`https://covers.openlibrary.org/b/isbn/{isbn}-M.jpg`),
-  diunduh ke `public/covers/`; bila tidak ada → placeholder garis putus-putus.
+- **Sinkron rutin:** RSS rak `https://www.goodreads.com/review/list_rss/201369776?shelf=read`
+  (dan `?shelf=currently-reading`) **sudah dicek 2 dan 4 November 2026: tidak bisa diakses (404)**,
+  padahal profil publik. Karena itu buku baru masuk lewat impor CSV ulang, dan sinkron hanya
+  melengkapi sampul (`scripts/sync-covers.mjs`).
+- **Sampul:** diunduh ke repo (`public/covers/{id}.jpg`) saat sinkron, tidak di-hotlink. Urutan
+  sumber: (1) Open Library via ISBN (`https://covers.openlibrary.org/b/isbn/{isbn}-L.jpg`);
+  (2) bila tidak ada, gambar `og:image` dari halaman buku di Goodreads (sampul edisi yang
+  di-rak-kan, diperkecil ke lebar 330px) — dipakai untuk buku tanpa ISBN dan buku Indonesia
+  yang tidak ada di Open Library; (3) bila tetap tidak ada → placeholder garis putus-putus.
 - Bentuk entri: `{ id, title, author, year?, rating?, shelf, dateRead?, isbn?, goodreadsUrl, cover? }`.
 
 ### Catatan
@@ -245,9 +249,11 @@ sumber luar sedang mati.
 - Frontmatter: `title`, `date`, `lang` (`id` | `en`), `summary`, `translationOf?`, `draft?`.
 
 ### Otomatisasi
-- Workflow GitHub Actions terjadwal sekali sehari (mis. `cron: '17 22 * * *'` UTC ≈ 05:17 WIB):
-  jalankan script sinkron → commit `src/data/*.json` & gambar baru bila ada perubahan → build &
-  deploy. Bisa juga dijalankan manual (`workflow_dispatch`).
+- Sinkron Letterboxd & Goodreads berjalan **sekali sehari**, bukan per jam
+  (`.github/workflows/sync.yml`, `cron: '17 22 * * *'` UTC ≈ 05:17 WIB), plus `workflow_dispatch`
+  untuk pemicu manual dari tab Actions. Urutannya: `npm run sync` → poster (`public/posters/`)
+  dan sampul (`public/covers/`) diunduh ke repo → commit `src/data/*.json` & gambar baru ke `main`
+  bila ada perubahan → jalankan workflow deploy.
 - Script sinkron harus aman gagal: bila fetch error, biarkan data lama dan jangan gagalkan build.
 
 ## 10. Aksesibilitas & performa
