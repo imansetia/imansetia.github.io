@@ -1,12 +1,13 @@
 ---
-// Halaman Tentang, dipakai oleh /tentang/ dan /en/about/.
-// Teks berkurung siku [ ... ] di src/i18n/ui.ts ditulis Iman (DESIGN.md bagian 8 & 11).
+// Halaman Tentang, dipakai oleh /about/ dan /id/tentang/.
+// Teks halaman ada di src/i18n/ui.ts (kunci about.*); isinya ditulis Iman (DESIGN.md bagian 8).
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import { langOf, otherLang, routes, useTranslations } from '../i18n/ui';
 
 const lang = langOf(Astro.currentLocale);
 const t = useTranslations(lang);
+const [beforeLink, afterLink] = t('about.interestsMore').split('{link}');
 ---
 
 <BaseLayout
@@ -36,9 +37,8 @@ const t = useTranslations(lang);
       <h2 class="label" id="minat">{t('about.interests')}</h2>
       <div class="text">
         <p>{t('about.interestsText')}</p>
-        <p>{t('about.interestsMore')}</p>
         <p>
-          {t('projects.text')} <a href="https://botchan.tech">botchan.tech</a>.
+          {beforeLink}<a href="https://botchan.tech">botchan.tech</a>{afterLink}
         </p>
       </div>
     </section>

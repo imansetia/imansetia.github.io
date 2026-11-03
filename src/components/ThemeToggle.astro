@@ -24,13 +24,8 @@ const t = useTranslations(langOf(Astro.currentLocale));
 
 <script>
   const root = document.documentElement;
-  const dark = window.matchMedia('(prefers-color-scheme: dark)');
-
-  function currentTheme() {
-    const set = root.dataset.theme;
-    if (set === 'light' || set === 'dark') return set;
-    return dark.matches ? 'dark' : 'light';
-  }
+  // Default terang; gelap hanya bila dipilih lewat tombol (tersimpan di localStorage).
+  const currentTheme = () => (root.dataset.theme === 'dark' ? 'dark' : 'light');
 
   function updateLabel(button: HTMLButtonElement) {
     const label = currentTheme() === 'dark' ? button.dataset.labelLight : button.dataset.labelDark;
@@ -39,7 +34,6 @@ const t = useTranslations(langOf(Astro.currentLocale));
 
   document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((button) => {
     updateLabel(button);
-    dark.addEventListener('change', () => updateLabel(button));
 
     button.addEventListener('click', () => {
       const next = currentTheme() === 'dark' ? 'light' : 'dark';
@@ -82,15 +76,5 @@ const t = useTranslations(langOf(Astro.currentLocale));
 
   :global(:root[data-theme='dark']) .icon-moon {
     display: none;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :global(:root:not([data-theme='light'])) .icon-sun {
-      display: block;
-    }
-
-    :global(:root:not([data-theme='light'])) .icon-moon {
-      display: none;
-    }
   }
 </style>

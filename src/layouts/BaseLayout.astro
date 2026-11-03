@@ -26,7 +26,8 @@ const { title, description = t('site.description'), alternate } = Astro.props;
 const fullTitle = title ? `${title} — Iman Setia` : 'Iman Setia';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const alternateUrl = new URL(alternate, Astro.site);
-const idUrl = lang === 'id' ? canonical : alternateUrl;
+// x-default: versi Inggris, bahasa utama situs.
+const enUrl = lang === 'en' ? canonical : alternateUrl;
 // Gambar pratinjau dibuat oleh scripts/make-images.mjs, satu per bahasa.
 const ogImage = new URL(`/og-${lang}.jpg`, Astro.site);
 ---
@@ -41,7 +42,7 @@ const ogImage = new URL(`/og-${lang}.jpg`, Astro.site);
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang={lang} href={canonical} />
     <link rel="alternate" hreflang={otherLang(lang)} href={alternateUrl} />
-    <link rel="alternate" hreflang="x-default" href={idUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -60,12 +61,12 @@ const ogImage = new URL(`/og-${lang}.jpg`, Astro.site);
     <meta property="og:image:alt" content={t('og.alt')} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="generator" content={Astro.generator} />
-    <!-- Pasang tema tersimpan sebelum halaman tampil, supaya tidak berkedip. -->
+    <!-- Tema default terang. Pasang tema gelap tersimpan sebelum halaman tampil,
+         supaya tidak berkedip. Tema sistem (prefers-color-scheme) sengaja diabaikan. -->
     <script is:inline>
       try {
-        const saved = localStorage.getItem('theme');
-        if (saved === 'light' || saved === 'dark') {
-          document.documentElement.dataset.theme = saved;
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.dataset.theme = 'dark';
         }
       } catch {}
     </script>

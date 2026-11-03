@@ -67,8 +67,10 @@ Definisikan sebagai CSS custom properties di `src/styles/tokens.css`.
 
 ### Warna — gelap
 
-Aktif lewat `prefers-color-scheme: dark` **dan** toggle manual (`data-theme="dark"` di `<html>`,
-pilihan disimpan di `localStorage`, dibungkus try/catch).
+Situs **selalu terbuka terang**; `prefers-color-scheme` tidak diikuti. Mode gelap hanya lewat
+tombol tema (`data-theme="dark"` di `<html>`), pilihan disimpan di `localStorage` (dibungkus
+try/catch). Script kecil di `<head>` membaca `localStorage` sebelum render supaya tidak ada
+kedipan tema.
 
 | Token | Nilai |
 |---|---|
@@ -115,17 +117,23 @@ tanpa mengecek kontras.
 
 ## 5. Struktur halaman & routing
 
-Bahasa default **Indonesia** di root, Inggris di `/en/`. Pakai i18n bawaan Astro
-(`defaultLocale: 'id'`, `locales: ['id','en']`, `prefixDefaultLocale: false`).
+Bahasa default **Inggris** di root, Indonesia di `/id/`. Pakai i18n bawaan Astro
+(`defaultLocale: 'en'`, `locales: ['en','id']`, `prefixDefaultLocale: false`).
+**Tidak ada** pengalihan otomatis berdasarkan bahasa browser.
 
-| Halaman | ID | EN |
+| Halaman | EN | ID |
 |---|---|---|
-| Beranda | `/` | `/en/` |
-| Tontonan (katalog film) | `/tontonan/` | `/en/films/` |
-| Bacaan (rak buku) | `/bacaan/` | `/en/books/` |
-| Catatan (daftar) | `/catatan/` | `/en/notes/` |
-| Satu catatan | `/catatan/[slug]/` | `/en/notes/[slug]/` |
-| Tentang | `/tentang/` | `/en/about/` |
+| Beranda | `/` | `/id/` |
+| Tontonan (katalog film) | `/films/` | `/id/tontonan/` |
+| Bacaan (rak buku) | `/books/` | `/id/bacaan/` |
+| Catatan (daftar) | `/notes/` | `/id/catatan/` |
+| Satu catatan | `/notes/[slug]/` | `/id/catatan/[slug]/` |
+| Tentang | `/about/` | `/id/tentang/` |
+
+`hreflang` `x-default` menunjuk versi Inggris. Alamat lama tetap hidup lewat `redirects` di
+`astro.config.mjs`: `/tontonan/`, `/bacaan/`, `/catatan/…`, `/tentang/` → `/id/…`, dan
+`/en/…` (versi Inggris lama) → alamat Inggris di root. (Perubahan November 2026; sebelumnya
+Indonesia di root dan Inggris di `/en/`.)
 
 Teks antarmuka (menu, label, judul seksi, halaman Tentang) diterjemahkan lewat satu file kamus
 `src/i18n/ui.ts`. **Catatan tidak wajib diterjemahkan**: tiap catatan punya `lang`, dan tampil di
@@ -185,8 +193,21 @@ Toggle `ID / EN` di header pindah ke halaman padanan, bukan ke beranda.
 - **Satu catatan:** lebar baca ±680px, Newsreader 20px/1.65, tanggal + bahasa di atas, link
   ke terjemahan bila ada, link kembali ke arsip.
 - **Tentang:** bio, pendidikan (S-1 Ilmu Hukum USU), minat (hukum, film, buku, teknologi),
-  link ke botchan.tech, kontak. **Isi teks ditulis Iman** — siapkan kerangka dengan placeholder
-  yang jelas.
+  link ke botchan.tech, kontak. Teks ditulis Iman (kunci `about.*` di `src/i18n/ui.ts`):
+  - Bio (ID): "Saya Iman Setia Halawa, mahasiswa hukum di Universitas Sumatera Utara. Di kelas
+    saya belajar bagaimana hukum seharusnya bekerja; lewat film dan buku saya melihat apa yang
+    terjadi ketika ia gagal. Cerita yang paling lama tinggal di kepala saya hampir selalu tentang
+    itu: seorang anak yang menggugat orang tuanya, keluarga yang terbelah perang, orang yang
+    dituduh tanpa bukti. Situs ini catatan dari keduanya."
+  - Bio (EN): "I'm Iman Setia Halawa, a law student at Universitas Sumatera Utara. In class I
+    learn how the law is supposed to work; through films and books I see what happens when it
+    fails. The stories that stay with me longest are almost always about that: a child who sues
+    his parents, a family torn apart by war, a man accused without proof. This site is a record
+    of both."
+  - Kalimat minat (ID): "Eksperimen teknologi saya, dari situs web sampai agen AI, saya
+    kumpulkan di botchan.tech." / (EN): "My tech experiments, from websites to AI agents, live
+    at botchan.tech."
+  - Tahun masuk: masih placeholder `[TAHUN MASUK]` / `[YEAR STARTED]`.
 
 ## 9. Data
 
@@ -243,7 +264,8 @@ sumber luar sedang mati.
 
 - [ ] File export Letterboxd & Goodreads.
 - [ ] Alamat email yang mau ditampilkan.
-- [ ] Teks halaman Tentang (ID, dan EN bila mau).
+- [x] Teks halaman Tentang (ID dan EN).
+- [ ] Tahun masuk kuliah (halaman Tentang).
 - [ ] Konfirmasi 5 film favorit dan kalimat subjudul seksi Tontonan.
 - [ ] (Opsional) 1–3 catatan pertama.
 

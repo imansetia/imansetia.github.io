@@ -57,23 +57,8 @@
   }
 }
 
-/* Warna — gelap. Ikut sistem, kecuali pengunjung memilih terang secara manual. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    color-scheme: dark;
-    --bg: #121816;
-    --surface: #1a2220;
-    --ink: #e3e8e2;
-    --ink-2: #bac4bd;
-    --muted: #8e9a93;
-    --rule: #2c3632;
-    --dash: #4a5651;
-    --accent: #9aa8f0;
-    --accent-hover: #c3ccf7;
-  }
-}
-
-/* Warna — gelap, dipilih manual lewat tombol tema. */
+/* Warna — gelap. Situs selalu terbuka terang (tidak mengikuti tema sistem);
+   gelap hanya bila pengunjung memilihnya lewat tombol tema. */
 :root[data-theme='dark'] {
   color-scheme: dark;
   --bg: #121816;

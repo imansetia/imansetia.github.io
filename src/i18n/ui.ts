@@ -88,13 +88,15 @@ export const ui = {
     'about.description':
       'Tentang Iman Setia Halawa, mahasiswa hukum di Universitas Sumatera Utara.',
     'about.bio': 'Bio',
-    'about.bioText': '[BIO — beberapa kalimat tentang diri Iman, ditulis sendiri oleh Iman.]',
+    'about.bioText':
+      'Saya Iman Setia Halawa, mahasiswa hukum di Universitas Sumatera Utara. Di kelas saya belajar bagaimana hukum seharusnya bekerja; lewat film dan buku saya melihat apa yang terjadi ketika ia gagal. Cerita yang paling lama tinggal di kepala saya hampir selalu tentang itu: seorang anak yang menggugat orang tuanya, keluarga yang terbelah perang, orang yang dituduh tanpa bukti. Situs ini catatan dari keduanya.',
     'about.education': 'Pendidikan',
     'about.degree': 'S-1 Ilmu Hukum',
     'about.school': 'Universitas Sumatera Utara, Medan · [TAHUN MASUK]',
     'about.interests': 'Minat',
     'about.interestsText': 'Hukum, film, buku, dan teknologi.',
-    'about.interestsMore': '[Kalimat tambahan tentang minat, opsional.]',
+    'about.interestsMore':
+      'Eksperimen teknologi saya, dari situs web sampai agen AI, saya kumpulkan di {link}.',
     'about.contact': 'Kontak',
   },
   en: {
@@ -180,13 +182,14 @@ export const ui = {
     'about.heading': 'About me',
     'about.description': 'About Iman Setia Halawa, a law student at Universitas Sumatera Utara.',
     'about.bio': 'Bio',
-    'about.bioText': '[BIO — a few sentences about Iman, written by Iman.]',
+    'about.bioText':
+      'I’m Iman Setia Halawa, a law student at Universitas Sumatera Utara. In class I learn how the law is supposed to work; through films and books I see what happens when it fails. The stories that stay with me longest are almost always about that: a child who sues his parents, a family torn apart by war, a man accused without proof. This site is a record of both.',
     'about.education': 'Education',
     'about.degree': 'Bachelor of Laws (S-1 Ilmu Hukum)',
     'about.school': 'Universitas Sumatera Utara, Medan · [YEAR STARTED]',
     'about.interests': 'Interests',
     'about.interestsText': 'Law, film, books, and technology.',
-    'about.interestsMore': '[An extra sentence about interests, optional.]',
+    'about.interestsMore': 'My tech experiments, from websites to AI agents, live at {link}.',
     'about.contact': 'Contact',
   },
 } as const;
@@ -201,18 +204,18 @@ export function useTranslations(lang: Lang) {
 
 /** Bahasa halaman saat ini, dari i18n Astro. */
 export function langOf(currentLocale: string | undefined): Lang {
-  return currentLocale === 'en' ? 'en' : 'id';
+  return currentLocale === 'id' ? 'id' : 'en';
 }
 
 export const otherLang = (lang: Lang): Lang => (lang === 'id' ? 'en' : 'id');
 
 // Halaman padanan di kedua bahasa (DESIGN.md bagian 5).
 export const routes = {
-  home: { id: '/', en: '/en/' },
-  films: { id: '/tontonan/', en: '/en/films/' },
-  books: { id: '/bacaan/', en: '/en/books/' },
-  notes: { id: '/catatan/', en: '/en/notes/' },
-  about: { id: '/tentang/', en: '/en/about/' },
+  home: { en: '/', id: '/id/' },
+  films: { en: '/films/', id: '/id/tontonan/' },
+  books: { en: '/books/', id: '/id/bacaan/' },
+  notes: { en: '/notes/', id: '/id/catatan/' },
+  about: { en: '/about/', id: '/id/tentang/' },
 } as const;
 
 export type Page = keyof typeof routes;
