@@ -61,7 +61,8 @@
     "year": 2003,
     "rating": null,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/55019161"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/55019161",
+    "cover": "/covers/55019161.jpg"
   },
   {
     "id": "960",
@@ -81,7 +82,8 @@
     "year": 1960,
     "rating": null,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/56916837"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/56916837",
+    "cover": "/covers/56916837.jpg"
   },
   {
     "id": "25897850",
@@ -102,7 +104,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9789792295849",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/17886352"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/17886352",
+    "cover": "/covers/17886352.jpg"
   },
   {
     "id": "13582635",
@@ -112,7 +115,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9786028811743",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/13582635"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/13582635",
+    "cover": "/covers/13582635.jpg"
   },
   {
     "id": "1421046",
@@ -122,7 +126,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9799822939",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/1421046"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1421046",
+    "cover": "/covers/1421046.jpg"
   },
   {
     "id": "1300350",
@@ -165,7 +170,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9786020303932",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/21433310"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/21433310",
+    "cover": "/covers/21433310.jpg"
   },
   {
     "id": "1667423",
@@ -186,7 +192,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9786020611945",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/41559841"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/41559841",
+    "cover": "/covers/41559841.jpg"
   },
   {
     "id": "102868",
@@ -228,7 +235,8 @@
     "year": 2017,
     "rating": null,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/33848032"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/33848032",
+    "cover": "/covers/33848032.jpg"
   },
   {
     "id": "59345269",
@@ -237,7 +245,8 @@
     "year": 2021,
     "rating": null,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/59345269"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/59345269",
+    "cover": "/covers/59345269.jpg"
   },
   {
     "id": "34311766",
@@ -246,7 +255,8 @@
     "year": 2016,
     "rating": null,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/34311766"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/34311766",
+    "cover": "/covers/34311766.jpg"
   },
   {
     "id": "27213435",
@@ -267,7 +277,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9786020295954",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/33548853"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/33548853",
+    "cover": "/covers/33548853.jpg"
   },
   {
     "id": "1439791",
@@ -277,7 +288,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9789793307121",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/1439791"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1439791",
+    "cover": "/covers/1439791.jpg"
   },
   {
     "id": "1439654",
@@ -287,7 +299,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9789793301907",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/1439654"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1439654",
+    "cover": "/covers/1439654.jpg"
   },
   {
     "id": "1337353",
@@ -308,7 +321,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9789793304496",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/1439781"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1439781",
+    "cover": "/covers/1439781.jpg"
   },
   {
     "id": "1439771",
@@ -318,7 +332,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9789793303161",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/1439771"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/1439771",
+    "cover": "/covers/1439771.jpg"
   },
   {
     "id": "25498974",
@@ -328,7 +343,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9786022911029",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/25498974"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/25498974",
+    "cover": "/covers/25498974.jpg"
   },
   {
     "id": "8574333",
@@ -393,7 +409,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9786024125189",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/42861019"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/42861019",
+    "cover": "/covers/42861019.jpg"
   },
   {
     "id": "89724",
@@ -425,7 +442,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9789792255898",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/7876993"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/7876993",
+    "cover": "/covers/7876993.jpg"
   },
   {
     "id": "35068705",
@@ -446,7 +464,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9793019158",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/2236672"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/2236672",
+    "cover": "/covers/2236672.jpg"
   },
   {
     "id": "49552",
@@ -455,7 +474,8 @@
     "year": 1942,
     "rating": null,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/49552"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/49552",
+    "cover": "/covers/49552.jpg"
   },
   {
     "id": "52699713",
@@ -487,7 +507,8 @@
     "rating": null,
     "shelf": "read",
     "isbn": "9791159032486",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/43609577"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/43609577",
+    "cover": "/covers/43609577.jpg"
   },
   {
     "id": "35031085",
@@ -529,7 +550,8 @@
     "year": 1913,
     "rating": null,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/12361530"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/12361530",
+    "cover": "/covers/12361530.jpg"
   },
   {
     "id": "17690",
@@ -538,7 +560,8 @@
     "year": 1925,
     "rating": null,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/17690"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/17690",
+    "cover": "/covers/17690.jpg"
   },
   {
     "id": "485894",
@@ -558,7 +581,8 @@
     "year": 1866,
     "rating": null,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/12857"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/12857",
+    "cover": "/covers/12857.jpg"
   },
   {
     "id": "49455",
@@ -589,7 +613,8 @@
     "year": 1866,
     "rating": null,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/7144"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/7144",
+    "cover": "/covers/7144.jpg"
   },
   {
     "id": "22557272",
@@ -609,7 +634,8 @@
     "year": 2016,
     "rating": 4,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/62627512"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/62627512",
+    "cover": "/covers/62627512.jpg"
   },
   {
     "id": "25856606",
@@ -629,7 +655,8 @@
     "year": 1997,
     "rating": 3,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/42844155"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/42844155",
+    "cover": "/covers/42844155.jpg"
   },
   {
     "id": "41733839",
@@ -638,7 +665,8 @@
     "year": 1925,
     "rating": 4,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/41733839"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/41733839",
+    "cover": "/covers/41733839.jpg"
   },
   {
     "id": "129915654",
@@ -647,6 +675,7 @@
     "year": 1813,
     "rating": 4,
     "shelf": "read",
-    "goodreadsUrl": "https://www.goodreads.com/book/show/129915654"
+    "goodreadsUrl": "https://www.goodreads.com/book/show/129915654",
+    "cover": "/covers/129915654.jpg"
   }
 ]
