@@ -146,7 +146,7 @@ Toggle `ID / EN` di header pindah ke halaman padanan, bukan ke beranda.
 
 - `Header` — kiri: "Iman Setia" (Newsreader italic 26px, link ke beranda). Kanan: nav mono
   TONTONAN · BACAAN · CATATAN · TENTANG, toggle `ID / EN`, toggle tema (tombol ikon, ada
-  `aria-label`). Garis bawah `1px var(--ink)`. Di HP nav turun ke baris kedua (wrap), tanpa
+  `aria-label`). Garis bawah `1px var(--ink)`. Di HP nav turun ke baris kedua (wrap), toggle tema tetap sebaris dengan nama, tanpa
   hamburger.
 - `SectionHeader` — label `0N / NAMA` + link opsional di kanan.
 - `NowCard` — dua varian:
@@ -154,13 +154,13 @@ Toggle `ID / EN` di header pindah ke halaman padanan, bukan ke beranda.
     bila rewatch, kutipan ulasan Iman bila ada, rating.
   - *Sedang dibaca*: sama, untuk buku. **Kartu disembunyikan otomatis bila kosong.**
 - `PosterCard` — poster rasio 2:3; bila gambar tidak ada, blok warna `--poster-n` dengan nomor
-  mono di atas dan judul italic di bawah. Di bawahnya: "Sutradara, Tahun" dan rating mono.
+  mono di atas dan judul italic di bawah. Di bawahnya: judul italic, "Sutradara, Tahun", dan rating mono.
 - `LogRow` — tanggal (`DD.MM.YYYY`, mono) · judul (serif) · tahun (mono) · rating (mono, accent).
 - `BookCard` / `BookRow` — sampul 2:3 (atau placeholder garis putus-putus) + judul italic + penulis.
 - `NoteItem` — tanggal + label bahasa di kolom kiri (mono), judul (28px) + 2 kalimat ringkasan.
 - `Rating` — bintang `★` dan `½` dari angka 0.5–5. Sertakan teks tersembunyi untuk pembaca layar
   ("4,5 dari 5"). Entri tanpa rating: tampilkan `—`.
-- `Footer` — `© 2026 IMAN SETIA HALAWA` + link EMAIL · GITHUB · LETTERBOXD · GOODREADS.
+- `Footer` — `© 2026 IMAN SETIA HALAWA` + link EMAIL · GITHUB · LETTERBOXD · GOODREADS · BOTCHAN.TECH.
 
 ## 7. Beranda — urutan & isi
 
@@ -170,16 +170,16 @@ Toggle `ID / EN` di header pindah ke halaman padanan, bukan ke beranda.
      membekas, buku yang saya selesaikan, dan pikiran yang belum sempat rapi."
    - Baris meta mono: `MEDAN, ID · {n} FILM TERCATAT · {n} BUKU TERCATAT · SINKRON: LETTERBOXD · GOODREADS`
      (angka dihitung otomatis dari data).
-2. **02 / SEKARANG** — kanan atas: `ENTRI TERAKHIR: {tanggal}`. Dua `NowCard` berdampingan
+2. **02 / SEKARANG** — kanan atas: `ENTRI TERAKHIR: {tanggal}`. Bila entri terakhir > 180 hari, label jadi `TERAKHIR DICATAT`. Dua `NowCard` berdampingan
    (bertumpuk di HP).
 3. **03 / TONTONAN** — H2 "Film yang membekas", subjudul italic
    "Hampir semuanya tentang keadilan: siapa yang dilindungi hukum, dan siapa yang tidak."
    *(kalimat usulan — Iman boleh mengganti)*. Grid 5 `PosterCard` favorit, lalu label
-   `LOG TERBARU` dan 6 `LogRow` terbaru. Link `LIHAT SEMUA {n} →`.
+   `LOG TERBARU` dan 6 `LogRow` terbaru (tanpa film yang sudah ada di kartu Sekarang). Di HP grid favorit hanya 4. Link `LIHAT SEMUA {n} →`.
 4. **04 / BACAAN** — H2 "Rak buku", 4 buku terbaru dari rak *read*. Link `RAK LENGKAP →`.
 5. **05 / CATATAN** — 3 catatan terbaru. Link `ARSIP →`. Bila belum ada catatan, sembunyikan
    seksi ini (jangan tampilkan placeholder di situs live).
-6. **06 / PROYEK** — satu kalimat: "Eksperimen teknologi saya ada di botchan.tech." (link).
+6. Link botchan.tech pindah ke footer (seksi Proyek dihapus). Nomor seksi dihitung otomatis dari seksi yang tampil.
 7. **Footer.**
 
 ## 8. Halaman lain

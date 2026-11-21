@@ -57,8 +57,8 @@ const path = Astro.url.pathname;
           ))
         }
       </div>
-      <ThemeToggle />
     </div>
+    <ThemeToggle />
   </div>
 </header>
 
@@ -90,6 +90,16 @@ const path = Astro.url.pathname;
     flex-wrap: wrap;
     align-items: center;
     gap: 12px 24px;
+    margin-left: auto;
+  }
+
+  /* HP: tombol tema sebaris dengan nama, nav + bahasa turun ke baris kedua */
+  @media (max-width: 640px) {
+    .tools {
+      order: 1;
+      flex-basis: 100%;
+      margin-left: 0;
+    }
   }
 
   ul {

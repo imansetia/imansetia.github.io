@@ -19,8 +19,8 @@ const { title, year, director, rating, href, poster, index, priority } = Astro.p
 <article class="poster-card">
   <a href={href} class="cover-link">
     <Poster src={poster} title={title} year={year} index={index} priority={priority} />
-    <h3 class="sr-only">{title}</h3>
   </a>
+  <h3 class="title"><a href={href}><em>{title}</em></a></h3>
   <p class="meta">{director ? `${director}, ${year}` : year}</p>
   <Rating value={rating} />
 </article>
@@ -37,6 +37,21 @@ const { title, year, director, rating, href, poster, index, priority } = Astro.p
     display: block;
     margin-bottom: 4px;
     text-decoration: none;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .title a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
   }
 
   .meta {

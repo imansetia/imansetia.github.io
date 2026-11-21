@@ -31,12 +31,18 @@ const reading = currentlyReading();
 const latest = latestEntryDate();
 const shelf = readBooks().slice(0, 4);
 const notes = (await notesByDate()).slice(0, 3);
+
+// Nomor seksi dihitung dari seksi yang benar-benar tampil, supaya tidak loncat.
+const shown = ['home', (lastWatched || reading) && 'now', 'films', shelf.length > 0 && 'books', notes.length > 0 && 'notes'].filter(Boolean);
+const label = (key: string, text = t(`${key}.label`)) => `${String(shown.indexOf(key) + 1).padStart(2, '0')} / ${text}`;
+// "Now" hanya bila entri terakhir < 180 hari; situs dibangun ulang tiap hari oleh workflow sinkron.
+const isStale = !latest || Date.now() - new Date(latest).getTime() > 180 * 864e5;
 ---
 
 <BaseLayout alternate={routes.home[otherLang(lang)]}>
   <!-- 01 / BERANDA -->
   <section class="container section intro" aria-labelledby="judul">
-    <SectionHeader label={t('home.label')} />
+    <SectionHeader label={label('home')} />
     <h1 id="judul">{t('home.hello')} <em>Iman</em>.</h1>
     <p class="lead">{t('home.lead')}</p>
     <ul class="label meta-row">
@@ -53,7 +59,7 @@ const notes = (await notesByDate()).slice(0, 3);
       <section class="container section" aria-labelledby="sekarang">
         <SectionHeader
           id="sekarang"
-          label={t('now.label')}
+          label={label('now', t(isStale ? 'now.labelOld' : 'now.label'))}
           heading
           meta={latest ? t('now.latest', { date: formatDate(latest) }) : undefined}
         />
@@ -93,13 +99,13 @@ const notes = (await notesByDate()).slice(0, 3);
   <!-- 03 / TONTONAN -->
   <section class="container section" aria-labelledby="tontonan">
     <SectionHeader
-      label={t('films.label')}
+      label={label('films')}
       href={routes.films[lang]}
       linkText={t('films.seeAll', { n: filmCount() })}
     />
     <h2 id="tontonan">{t('films.heading')}</h2>
     <p class="subtitle">{t('films.subtitle')}</p>
-    <div class="poster-grid">
+    <div class="poster-grid favorites">
       {
         favorites.map((film, i) => (
           <PosterCard
@@ -118,6 +124,7 @@ const notes = (await notesByDate()).slice(0, 3);
     <ul class="log plain-list">
       {
         recentFilms
+          .filter((film) => film !== lastWatched)
           .slice(0, 6)
           .map((film) => (
             <LogRow
@@ -136,7 +143,7 @@ const notes = (await notesByDate()).slice(0, 3);
   {
     shelf.length > 0 && (
       <section class="container section" aria-labelledby="bacaan">
-        <SectionHeader label={t('books.label')} href={routes.books[lang]} linkText={t('books.fullShelf')} />
+        <SectionHeader label={label('books')} href={routes.books[lang]} linkText={t('books.fullShelf')} />
         <h2 id="bacaan">{t('books.heading')}</h2>
         <div class="book-grid">
           {shelf.map((book) => (
@@ -151,7 +158,7 @@ const notes = (await notesByDate()).slice(0, 3);
   {
     notes.length > 0 && (
       <section class="container section" aria-labelledby="catatan">
-        <SectionHeader id="catatan" label={t('notes.label')} href={routes.notes[lang]} linkText={t('notes.archive')} />
+        <SectionHeader id="catatan" label={label('notes')} href={routes.notes[lang]} linkText={t('notes.archive')} />
         <ul class="notes plain-list">
           {notes.map((note) => (
             <NoteItem
@@ -167,14 +174,6 @@ const notes = (await notesByDate()).slice(0, 3);
       </section>
     )
   }
-
-  <!-- 06 / PROYEK -->
-  <section class="container section" aria-labelledby="proyek">
-    <SectionHeader id="proyek" label={t('projects.label')} />
-    <p class="project">
-      {t('projects.text')} <a href="https://botchan.tech">botchan.tech</a>.
-    </p>
-  </section>
 </BaseLayout>
 
 <style>
@@ -245,8 +244,19 @@ const notes = (await notesByDate()).slice(0, 3);
     margin-top: 16px;
   }
 
-  .project {
-    margin-top: 24px;
-    font-size: var(--fs-lead);
+  @media (max-width: 560px) {
+    /* HP: satu item per baris, tanpa titik pemisah yang tertinggal di ujung baris */
+    .meta-row {
+      flex-direction: column;
+    }
+
+    .meta-row li:not(:last-child)::after {
+      content: none;
+    }
+
+    /* Grid 2 kolom: favorit ke-5 akan sendirian di barisnya; sisanya ada di "Lihat semua" */
+    .favorites > :global(:nth-child(n + 5)) {
+      display: none;
+    }
   }
 </style>
